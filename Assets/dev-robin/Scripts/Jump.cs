@@ -5,10 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Jump : MonoBehaviour
 {
+    //references
     [SerializeField] InputActionReference jump;
+
+    // variables
     private bool isOnGround = true;
+    private int jumpAmount = 2;
     [SerializeField] float jumpForce;
-    // Start is called before the first frame update
 
     private void OnEnable()
     {
@@ -32,14 +35,18 @@ public class Jump : MonoBehaviour
 
     private void Jumping(InputAction.CallbackContext context)
     {
-       
         if (isOnGround)
         {
-            isOnGround = false;
+            jumpAmount--;
             gameObject.GetComponent<Rigidbody>().AddForce(0,jumpForce,0,ForceMode.Impulse);
         }
 
-        
+        //this is when he double jumps
+        if(jumpAmount == 0)
+        {
+            isOnGround = false;
+            jumpAmount = 2;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
