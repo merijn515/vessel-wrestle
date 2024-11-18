@@ -39,9 +39,10 @@ public class Jump : MonoBehaviour
         {
             jumpAmount--;
             gameObject.GetComponent<Rigidbody>().AddForce(0,jumpForce,0,ForceMode.Impulse);
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
-        //this is when he double jumps
+        //this is right after the player double jumps
         if(jumpAmount == 0)
         {
             isOnGround = false;
