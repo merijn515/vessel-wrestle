@@ -48,7 +48,7 @@ public class Jump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
     }
 
@@ -120,7 +120,7 @@ public class Jump : MonoBehaviour
 
     private IEnumerator PunchingEnum()
     {
-        WaitForSeconds wait = new WaitForSeconds(.25f);
+        WaitForSeconds wait = new WaitForSeconds(.4f);
 
         yield return wait;
 
@@ -137,8 +137,10 @@ public class Jump : MonoBehaviour
     private void OnDrawGizmos()
     {
         // the ground pound sphere for debugging -
-       // Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
-          Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
+        // Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
+
+        // melee sphere for debugging
+        // Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
     }
     private void OnCollisionEnter(Collision collision)
     {
