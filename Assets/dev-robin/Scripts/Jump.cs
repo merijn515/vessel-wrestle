@@ -7,12 +7,17 @@ using UnityEngine.UIElements;
 public class Jump : MonoBehaviour
 {
     //references
-    [SerializeField] InputActionReference jump,groundPound;
+    [SerializeField] InputActionReference jump,groundPound,punch,dash;
+
     private Rigidbody rb;
+    private GameObject punchArm;
 
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
+
+    [SerializeField] float punchRadius;
+
     private bool isOnGround = true;
 
     private int jumpAmount = 2;
@@ -26,22 +31,31 @@ public class Jump : MonoBehaviour
     {
         jump.action.performed += Jumping;
         groundPound.action.performed += GroundPound;
+        punch.action.performed += Punching;
     }
 
     private void OnDisable()
     {
         jump.action.performed -= Jumping;
         groundPound.action.performed -= GroundPound;
+        punch.action.performed -= Punching;
     }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Punching(InputAction.CallbackContext context)
+    {
+        //Play punching animation
+        StartCoroutine(PunchingEnum());
     }
 
     private void Jumping(InputAction.CallbackContext context)
@@ -81,13 +95,30 @@ public class Jump : MonoBehaviour
       
         foreach (Collider collider in hitColliders)
         {
+            // add damage to the enemy instead
             collider.gameObject.SetActive(false);
         }
         
     }
+
+    private IEnumerator PunchingEnum()
+    {
+        WaitForSeconds wait = new WaitForSeconds(.25f);
+
+        yield return wait;
+
+        Collider[] punchCollider = Physics.OverlapSphere(punchArm.transform.position, punchRadius, hitLayer);
+
+        foreach (Collider collider in punchCollider)
+        {
+            // add damage to the enemy instead
+            collider.gameObject.SetActive(false);
+        }
+    }
     private void OnDrawGizmos()
     {
-       // the ground pound sphere for debugging Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
+        // the ground pound sphere for debugging - Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
+       // punch sphere for debugging -  Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
     }
     private void OnCollisionEnter(Collision collision)
     {

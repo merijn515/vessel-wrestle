@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 635773159}
   - component: {fileID: 635773158}
   - component: {fileID: 635773157}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -434,13 +434,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081362880}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.020183567, y: -0, z: -0, w: 0.9997963}
-  m_LocalPosition: {x: -32, y: 107.8, z: 95.3}
+  m_LocalRotation: {x: 0.12788552, y: -0, z: -0, w: 0.991789}
+  m_LocalPosition: {x: -32, y: 126.6, z: 82.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -2.313, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.695, y: 0, z: 0}
 --- !u!1001 &7373071985054891321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -521,6 +521,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4730858466673127649, guid: 9db7b6791bdbdde4b8fae5210da63cc6, type: 3}
+      propertyPath: m_TagString
+      value: Punch arm
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955703158803038538, guid: 9db7b6791bdbdde4b8fae5210da63cc6, type: 3}
+      propertyPath: punch
+      value: 
+      objectReference: {fileID: 3883292483729245010, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
     - target: {fileID: 4955703158803038538, guid: 9db7b6791bdbdde4b8fae5210da63cc6, type: 3}
       propertyPath: jumpForce
       value: 12
@@ -529,6 +537,10 @@ PrefabInstance:
       propertyPath: groundPound
       value: 
       objectReference: {fileID: -463767245077479641, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
+    - target: {fileID: 4955703158803038538, guid: 9db7b6791bdbdde4b8fae5210da63cc6, type: 3}
+      propertyPath: punchRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4955703158803038538, guid: 9db7b6791bdbdde4b8fae5210da63cc6, type: 3}
       propertyPath: hitLayer.m_Bits
       value: 8
