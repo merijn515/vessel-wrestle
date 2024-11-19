@@ -23,6 +23,7 @@ public class Jump : MonoBehaviour
     private int jumpAmount = 2;
 
     [SerializeField] float jumpForce;
+    [SerializeField] float dashForce;
 
     [SerializeField] LayerMask hitLayer;
 
@@ -32,6 +33,7 @@ public class Jump : MonoBehaviour
         jump.action.performed += Jumping;
         groundPound.action.performed += GroundPound;
         punch.action.performed += Punching;
+        dash.action.performed += Dashing;
     }
 
     private void OnDisable()
@@ -39,6 +41,7 @@ public class Jump : MonoBehaviour
         jump.action.performed -= Jumping;
         groundPound.action.performed -= GroundPound;
         punch.action.performed -= Punching;
+        dash.action.performed -= Dashing;
     }
     void Start()
     {
@@ -58,7 +61,12 @@ public class Jump : MonoBehaviour
         StartCoroutine(PunchingEnum());
     }
 
-    private void Jumping(InputAction.CallbackContext context)
+    private void Dashing(InputAction.CallbackContext context)
+    {
+        //Play dash animation
+       // need movement script to test this
+    }
+        private void Jumping(InputAction.CallbackContext context)
     {
         if (jumpAmount > 0)
         {
