@@ -12,6 +12,7 @@ public class Jump : MonoBehaviour
     private Rigidbody rb;
     private GameObject punchArm;
 
+    private Animator animator;
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
@@ -33,7 +34,7 @@ public class Jump : MonoBehaviour
         jump.action.performed += Jumping;
         groundPound.action.performed += GroundPound;
         punch.action.performed += Punching;
-        dash.action.performed += Dashing;
+      //  dash.action.performed += Dashing;
     }
 
     private void OnDisable()
@@ -41,11 +42,12 @@ public class Jump : MonoBehaviour
         jump.action.performed -= Jumping;
         groundPound.action.performed -= GroundPound;
         punch.action.performed -= Punching;
-        dash.action.performed -= Dashing;
+       // dash.action.performed -= Dashing;
     }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
     }
 
@@ -66,12 +68,13 @@ public class Jump : MonoBehaviour
         //Play dash animation
        // need movement script to test this
     }
-        private void Jumping(InputAction.CallbackContext context)
+    private void Jumping(InputAction.CallbackContext context)
     {
         if (jumpAmount > 0)
         {
             jumpAmount--;
             isOnGround = false;
+            animator.SetBool("IsJumping", !isOnGround);
             rb.AddForce(0,jumpForce,0,ForceMode.Impulse);
             rb.velocity = Vector3.zero;
         }
@@ -96,7 +99,7 @@ public class Jump : MonoBehaviour
         yield return wait;
         rb.useGravity = true;
         rb.AddForce(0,-groundPoundForce,0,ForceMode.Impulse);
-
+        animator.SetFloat("yVelocity", transform.position.y);
         yield return new WaitForSeconds(.25f);
         // play ground pound vfx
         Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, groundPoundRadius,hitLayer);
@@ -133,6 +136,7 @@ public class Jump : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isOnGround = true;
+            animator.SetBool("IsJumping", !isOnGround);
             jumpAmount = 2;
         }
     }
