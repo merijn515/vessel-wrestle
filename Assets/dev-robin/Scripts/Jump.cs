@@ -13,6 +13,7 @@ public class Jump : MonoBehaviour
     private GameObject punchArm;
 
     private Animator animator;
+
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
@@ -54,12 +55,13 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        animator.SetBool("IsJumping", !isOnGround);
     }
 
     private void Punching(InputAction.CallbackContext context)
     {
-        //Play punching animation
+        animator.SetBool("Punch", true);
+
         StartCoroutine(PunchingEnum());
     }
 
@@ -74,8 +76,11 @@ public class Jump : MonoBehaviour
         {
             jumpAmount--;
             isOnGround = false;
+
             animator.SetBool("IsJumping", !isOnGround);
+
             rb.AddForce(0,jumpForce,0,ForceMode.Impulse);
+
             rb.velocity = Vector3.zero;
         }
         
@@ -86,6 +91,7 @@ public class Jump : MonoBehaviour
         if(!isOnGround)
         {
             //ground pound animations still needs to be added
+            animator.SetBool("GroundPound", true);
             StartCoroutine(GroundPoundEnum());
         }
     }
@@ -99,7 +105,7 @@ public class Jump : MonoBehaviour
         yield return wait;
         rb.useGravity = true;
         rb.AddForce(0,-groundPoundForce,0,ForceMode.Impulse);
-        animator.SetFloat("yVelocity", transform.position.y);
+    
         yield return new WaitForSeconds(.25f);
         // play ground pound vfx
         Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, groundPoundRadius,hitLayer);
@@ -125,18 +131,21 @@ public class Jump : MonoBehaviour
             // add damage to the enemy instead
             collider.gameObject.SetActive(false);
         }
+
+        animator.SetBool("Punch", false);
     }
     private void OnDrawGizmos()
     {
-        // the ground pound sphere for debugging - Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
-       // punch sphere for debugging -  Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
+        // the ground pound sphere for debugging -
+       // Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
+          Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             isOnGround = true;
-            animator.SetBool("IsJumping", !isOnGround);
+            animator.SetBool("GroundPound", false);
             jumpAmount = 2;
         }
     }
