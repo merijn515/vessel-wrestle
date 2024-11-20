@@ -4,16 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Punch arm
+  - itemPickup
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - HitLayer
+  - 
   - Water
   - UI
-  - 
+  - objectHold
   - 
   - 
   - 
