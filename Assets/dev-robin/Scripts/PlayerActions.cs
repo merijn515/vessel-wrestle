@@ -17,6 +17,7 @@ public class PlayerActions : MonoBehaviour
     private Animator animator;
 
     private playerPickup playerPickup;
+
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
@@ -28,7 +29,6 @@ public class PlayerActions : MonoBehaviour
     private int jumpAmount = 2;
 
     [SerializeField] float jumpForce;
-    [SerializeField] float dashForce;
 
     [SerializeField] int punchImpact;    
     private void OnEnable()
@@ -50,6 +50,7 @@ public class PlayerActions : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+
         punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
 
         playerPickup = FindAnyObjectByType<playerPickup>();
@@ -67,12 +68,6 @@ public class PlayerActions : MonoBehaviour
         animator.SetBool("Punch", true);
 
         StartCoroutine(PunchingEnum());
-    }
-
-    private void Dashing(InputAction.CallbackContext context)
-    {
-        //Play dash animation
-       // need movement script to test this
     }
     private void Jumping(InputAction.CallbackContext context)
     {
