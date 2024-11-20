@@ -40,11 +40,11 @@ public class playerPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Finish") && objectHold == null)
+        if (other.gameObject.CompareTag("itemPickup") && objectHold == null)
         {
             /*other.gameObject.transform.position = rightHand.transform.position;*/
             objectHold = other.gameObject;
-            other.gameObject.layer = 4;
+            //other.gameObject.layer = 6;
             holdingObject = true;
         }
     }
