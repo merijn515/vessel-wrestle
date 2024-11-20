@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - itemPickup
+  - Punch arm
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - HitLayer
   - 
   - 
   - 

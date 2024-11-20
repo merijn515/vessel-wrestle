@@ -171,8 +171,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: -5598373761867280410, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: punch
+      value: 
+      objectReference: {fileID: 1020268224402487519, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: groundPound
+      value: 
+      objectReference: {fileID: 3220212671368290231, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: punchImpact
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: hitLayer.m_Bits
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
@@ -423,7 +439,7 @@ GameObject:
   - component: {fileID: 1374685262}
   - component: {fileID: 1374685261}
   - component: {fileID: 1374685265}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
