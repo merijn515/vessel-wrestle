@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "throw",
+                    "type": "Button",
+                    "id": "d6fb0d82-c6b4-43c9-8413-daaef4e8dfc3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7f767d6a-fed7-49c2-a626-cc505d4bd9f0",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
