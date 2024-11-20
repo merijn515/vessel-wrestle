@@ -14,8 +14,9 @@ public class PlayerActions : MonoBehaviour
     private Rigidbody rb;
     private GameObject punchArm;
 
-    private Animator animator;
+    public Animator animator;
 
+    private playerPickup playerPickup;
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
@@ -45,11 +46,13 @@ public class PlayerActions : MonoBehaviour
         punch.action.performed -= Punching;
       
     }
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
+
+        playerPickup = FindAnyObjectByType<playerPickup>();
     }
 
     // Update is called once per frame
@@ -125,14 +128,19 @@ public class PlayerActions : MonoBehaviour
 
         yield return wait;
 
-        Collider[] punchCollider = Physics.OverlapSphere(punchArm.transform.position, punchRadius, hitLayer);
-
-        foreach (Collider collider in punchCollider)
+        // if its holding the sword it will do that amount of damage
+        if (!playerPickup.holdingObject)
         {
-            // add damage to the enemy instead
-            var rigid = collider.GetComponent<Rigidbody>();
+            Collider[] punchCollider = Physics.OverlapSphere(punchArm.transform.position, punchRadius, hitLayer);
 
-            rigid.AddForce(collider.gameObject.transform.position * punchImpact);
+            foreach (Collider collider in punchCollider)
+            {
+                // add damage to the enemy instead
+                var rigid = collider.GetComponent<Rigidbody>();
+
+                rigid.AddForce(collider.gameObject.transform.position * punchImpact);
+                Debug.Log("PlayerHit");
+            }
         }
 
         animator.SetBool("Punch", false);
@@ -143,7 +151,7 @@ public class PlayerActions : MonoBehaviour
         // Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
 
         // melee sphere for debugging
-        // Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
+       //  Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
     }
     private void OnCollisionEnter(Collision collision)
     {

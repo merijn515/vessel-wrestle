@@ -9,21 +9,26 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     [SerializeField] int swordImpact;
 
     private PlayerActions playerActions;
+    private playerPickup playerPickup;
+
     // Start is called before the first frame update
     void Start()
     {
         playerActions = FindAnyObjectByType<PlayerActions>();
+        playerPickup = FindAnyObjectByType<playerPickup>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerActions.animator.GetBool("Punch") && playerPickup.holdingObject)
+        {
+            KnockBackBehaviour();
+        }
     }
 
-    public IEnumerator KnockBackBehaviour()
+    public void KnockBackBehaviour()
     {
-        yield return new WaitForSeconds(.4f);
         Collider[] punchCollider = Physics.OverlapSphere(gameObject.transform.position, swordRadius, playerActions.hitLayer);
 
         foreach (Collider collider in punchCollider)
@@ -32,7 +37,14 @@ public class KnockbackSwordBehaviour : MonoBehaviour
             var rigid = collider.GetComponent<Rigidbody>();
 
             rigid.AddForce(collider.gameObject.transform.position * swordImpact);
+            Destroy(gameObject);
+            Debug.Log("Swordhit");
         }
 
+    }
+    private void OnDrawGizmos()
+    {
+        //debugging for sword knockback
+        //Gizmos.DrawWireSphere(gameObject.transform.position, swordRadius);
     }
 }

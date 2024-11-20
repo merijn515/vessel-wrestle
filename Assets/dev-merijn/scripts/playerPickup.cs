@@ -8,9 +8,9 @@ public class playerPickup : MonoBehaviour
     [SerializeField]
     private GameObject rightHand;
     [SerializeField]
-    private GameObject objectHold;
+    public GameObject objectHold;
     [SerializeField]
-    private bool holdingObject;
+    public bool holdingObject;
 
     [SerializeField]
     private Animator animator;
