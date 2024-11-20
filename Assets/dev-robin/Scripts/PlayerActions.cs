@@ -9,6 +9,8 @@ public class PlayerActions : MonoBehaviour
     //references
     [SerializeField] InputActionReference jump,groundPound,punch;
 
+    public LayerMask hitLayer;
+
     private Rigidbody rb;
     private GameObject punchArm;
 
@@ -26,8 +28,6 @@ public class PlayerActions : MonoBehaviour
 
     [SerializeField] float jumpForce;
     [SerializeField] float dashForce;
-
-    [SerializeField] LayerMask hitLayer;
 
     [SerializeField] int punchImpact;    
     private void OnEnable()
@@ -60,6 +60,7 @@ public class PlayerActions : MonoBehaviour
 
     private void Punching(InputAction.CallbackContext context)
     {
+        
         animator.SetBool("Punch", true);
 
         StartCoroutine(PunchingEnum());
