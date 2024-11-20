@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class Jump : MonoBehaviour
+public class PlayerActions : MonoBehaviour
 {
     //references
-    [SerializeField] InputActionReference jump,groundPound,punch,dash;
+    [SerializeField] InputActionReference jump,groundPound,punch;
 
     private Rigidbody rb;
     private GameObject punchArm;
@@ -29,13 +29,13 @@ public class Jump : MonoBehaviour
 
     [SerializeField] LayerMask hitLayer;
 
-
+    [SerializeField] int punchImpact;    
     private void OnEnable()
     {
         jump.action.performed += Jumping;
         groundPound.action.performed += GroundPound;
         punch.action.performed += Punching;
-      //  dash.action.performed += Dashing;
+      
     }
 
     private void OnDisable()
@@ -43,7 +43,7 @@ public class Jump : MonoBehaviour
         jump.action.performed -= Jumping;
         groundPound.action.performed -= GroundPound;
         punch.action.performed -= Punching;
-       // dash.action.performed -= Dashing;
+      
     }
     void Start()
     {
@@ -129,7 +129,9 @@ public class Jump : MonoBehaviour
         foreach (Collider collider in punchCollider)
         {
             // add damage to the enemy instead
-            collider.gameObject.SetActive(false);
+            var rigid = collider.GetComponent<Rigidbody>();
+
+            rigid.AddForce(collider.gameObject.transform.position * punchImpact);
         }
 
         animator.SetBool("Punch", false);
