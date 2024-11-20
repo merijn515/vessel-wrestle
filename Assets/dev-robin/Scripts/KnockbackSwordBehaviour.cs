@@ -11,17 +11,20 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     private PlayerActions playerActions;
     private playerPickup playerPickup;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         playerActions = FindAnyObjectByType<PlayerActions>();
         playerPickup = FindAnyObjectByType<playerPickup>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerActions.animator.GetBool("Punch") && playerPickup.holdingObject)
+        if (animator.GetBool("Punch") && playerPickup.holdingObject)
         {
             KnockBackBehaviour();
         }

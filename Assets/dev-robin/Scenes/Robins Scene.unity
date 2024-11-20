@@ -179,6 +179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1020268224402487519, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
     - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: groundPound
       value: 
       objectReference: {fileID: 3220212671368290231, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}

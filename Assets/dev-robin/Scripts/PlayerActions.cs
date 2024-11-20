@@ -14,7 +14,7 @@ public class PlayerActions : MonoBehaviour
     private Rigidbody rb;
     private GameObject punchArm;
 
-    public Animator animator;
+    private Animator animator;
 
     private playerPickup playerPickup;
     // variables
@@ -117,7 +117,7 @@ public class PlayerActions : MonoBehaviour
         foreach (Collider collider in hitColliders)
         {
             // add damage to the enemy instead
-            collider.gameObject.SetActive(false);
+
         }
         
     }
