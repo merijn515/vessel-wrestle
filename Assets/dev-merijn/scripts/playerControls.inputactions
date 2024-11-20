@@ -15,36 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "throw",
                     "type": "Button",
-                    "id": "629db729-b98e-4dda-b6a4-e20c0f9e9b41",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Ground pound",
-                    "type": "Button",
-                    "id": "379525c4-e099-4815-a88e-f47bc9e2682e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Punch",
-                    "type": "Button",
-                    "id": "25191950-41b2-4417-961f-89bfb0761f19",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "a8d9b863-b5b6-4c22-98a9-810b8795ddbe",
+                    "id": "d6fb0d82-c6b4-43c9-8413-daaef4e8dfc3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -109,56 +82,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b0901c17-cf38-41a5-bbf1-a4a27a1f11f0",
-                    "path": "<Keyboard>/space",
+                    "id": "7f767d6a-fed7-49c2-a626-cc505d4bd9f0",
+                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6f93f59-a24f-480d-89f4-5941266c1322",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "03e53fb7-c394-46be-b0b0-42015ac782d9",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ground pound",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "06eff8cf-18da-4f03-ba57-6f714d09316a",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";player_controls",
-                    "action": "Punch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "34afc138-f34f-4d17-8869-9b0918faa606",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
+                    "action": "throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
