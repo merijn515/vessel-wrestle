@@ -11,6 +11,14 @@ public class playerMovement : MonoBehaviour
     private float speed;
     [SerializeField]
     private Vector3 testMove;
+    [SerializeField]
+    private bool isMoving;
+
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private SkinnedMeshRenderer meshRenderer;
 
 /*    [SerializeField] InputActionReference movement;*/
 
@@ -18,31 +26,73 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-
+        animator = GetComponent<Animator>();
+        meshRenderer = transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //transform.forward = playerRb.velocity;
+
+        /*        if (isMoving == true)
+                {
+                playerRb.velocity = testMove * speed * Time.deltaTime;
+                }
+                if (testMove != Vector3.zero)
+                {
+                    Debug.Log(playerRb.velocity);
+                    transform.right = playerRb.velocity + new Vector3(0f, 0f, 90f);
+                }*/
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            animator.SetTrigger("test death trigger");
+            meshRenderer.material.color = new Color(0f, 0f, 0f, 1f);
+        }
     }
-    public void Move(InputAction.CallbackContext context)
+    private void FixedUpdate()
     {
-        testMove = context.action.ReadValue<Vector3>().normalized;
-        //Debug.Log(testMove);
-        if (context.performed)
+        if (isMoving == true)
         {
             playerRb.velocity = testMove * speed;
         }
-        else
+        if (testMove != Vector3.zero)
+        {
+            //Debug.Log(playerRb.velocity);
+            transform.right = testMove/* + new Vector3(0f, 0f, 90f)*/;
+            animator.SetBool("test move trigger", true);
+        }
+        //else
+        if(testMove == Vector3.zero)
+        {
+            animator.SetBool("test move trigger", false);
+        }
+    }
+    public void Move(InputAction.CallbackContext context)
+    {
+        testMove = context.action.ReadValue<Vector3>();
+        //Debug.Log(testMove);
+        if (context.performed)
+        {
+            //playerRb.velocity = testMove * speed;
+            isMoving = true;
+            //animator.SetBool("test move trigger", true);
+            //transform.right = playerRb.velocity + new Vector3(0f, 0f, 90f);
+            //testMove = context.action.ReadValue<Vector3>();
+        }
+        //else 
+        if(context.canceled)
         {
             playerRb.velocity = Vector3.zero;
+            isMoving = false;
+            //animator.SetBool("test move trigger", false);
+            //transform.right = playerRb.velocity + new Vector3(0f, 0f, 90f);
         }
 
-        if (playerRb.velocity != Vector3.zero)
+        /*if (playerRb.velocity != Vector3.zero)
         {
-        transform.right = playerRb.velocity/* + new Vector3(0f, 0f, 90f)*/;
-        }
+            transform.right = playerRb.velocity + new Vector3(0f, 0f, 90f);
+        }*/
         //Debug.Log(playerRb.velocity);
     }
 }
