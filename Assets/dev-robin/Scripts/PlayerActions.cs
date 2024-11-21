@@ -108,11 +108,17 @@ public class PlayerActions : MonoBehaviour
         yield return new WaitForSeconds(.25f);
         // play ground pound vfx
         Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, groundPoundRadius,hitLayer);
-      
+
         foreach (Collider collider in hitColliders)
         {
-            // add damage to the enemy instead
+            if (collider.gameObject != gameObject)
+            {
+                // add damage to the enemy instead
+                var rigid = collider.GetComponent<Rigidbody>();
 
+                rigid.AddForce(collider.gameObject.transform.position * groundPoundForce);
+                Debug.Log("Player Ground Pounded");
+            }
         }
         
     }
@@ -130,11 +136,15 @@ public class PlayerActions : MonoBehaviour
 
             foreach (Collider collider in punchCollider)
             {
-                // add damage to the enemy instead
-                var rigid = collider.GetComponent<Rigidbody>();
+                if (collider.gameObject != gameObject)
+                {
+                    // add damage to the enemy instead
+                    var rigid = collider.GetComponent<Rigidbody>();
 
-                rigid.AddForce(collider.gameObject.transform.position * punchImpact);
-                Debug.Log("PlayerHit");
+                    rigid.AddForce(collider.gameObject.transform.position * punchImpact);
+                    Debug.Log("PlayerHit");
+
+                }
             }
         }
 
