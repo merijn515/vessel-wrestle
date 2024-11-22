@@ -15,6 +15,9 @@ public class playerMovement : MonoBehaviour
     private bool isMoving;
 
     [SerializeField]
+    private bool isSlowed;
+
+    [SerializeField]
     private Animator animator;
 
     [SerializeField]
@@ -49,6 +52,14 @@ public class playerMovement : MonoBehaviour
             animator.SetTrigger("test death trigger");
             meshRenderer.material.color = new Color(0f, 0f, 0f, 1f);
         }
+        if (isSlowed == false)
+        {
+            speed = 5f;
+        }
+        if (isSlowed == true)
+        {
+            speed = 2.5f;
+        }
     }
     private void FixedUpdate()
     {
@@ -66,6 +77,20 @@ public class playerMovement : MonoBehaviour
         if(testMove == Vector3.zero)
         {
             animator.SetBool("test move trigger", false);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("slownessOil"))
+        {
+            isSlowed = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("slownessOil"))
+        {
+            isSlowed = false;
         }
     }
     public void Move(InputAction.CallbackContext context)
