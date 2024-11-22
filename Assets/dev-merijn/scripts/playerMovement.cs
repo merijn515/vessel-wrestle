@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class playerMovement : MonoBehaviour
 {
+    
     [SerializeField]
     private Rigidbody playerRb;
     [SerializeField]
@@ -28,7 +29,7 @@ public class playerMovement : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context)
     {
-        testMove = context.action.ReadValue<Vector3>().normalized;
+        
         //Debug.Log(testMove);
         if (context.performed)
         {

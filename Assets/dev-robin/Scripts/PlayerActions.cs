@@ -17,6 +17,7 @@ public class PlayerActions : MonoBehaviour
     private Animator animator;
 
     private playerPickup playerPickup;
+    private HealthController healthController;
 
     // variables
     [SerializeField] int groundPoundForce;
@@ -54,6 +55,7 @@ public class PlayerActions : MonoBehaviour
         punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
 
         playerPickup = FindAnyObjectByType<playerPickup>();
+        healthController = GetComponent<HealthController>();
     }
 
     // Update is called once per frame
@@ -114,6 +116,7 @@ public class PlayerActions : MonoBehaviour
             if (collider.gameObject != gameObject)
             {
                 // add damage to the enemy instead
+                healthController.playerHealth--;
                 var rigid = collider.GetComponent<Rigidbody>();
 
                 rigid.AddForce(collider.gameObject.transform.position * groundPoundForce);
@@ -139,6 +142,7 @@ public class PlayerActions : MonoBehaviour
                 if (collider.gameObject != gameObject)
                 {
                     // add damage to the enemy instead
+                    healthController.playerHealth--;
                     var rigid = collider.GetComponent<Rigidbody>();
 
                     rigid.AddForce(collider.gameObject.transform.position * punchImpact);
