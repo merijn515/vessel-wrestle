@@ -17,7 +17,6 @@ public class PlayerActions : MonoBehaviour
     private Animator animator;
 
     private playerPickup playerPickup;
-    private HealthController healthController;
 
     // variables
     [SerializeField] int groundPoundForce;
@@ -55,7 +54,8 @@ public class PlayerActions : MonoBehaviour
         punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
 
         playerPickup = FindAnyObjectByType<playerPickup>();
-        healthController = GetComponent<HealthController>();
+
+       
     }
 
     // Update is called once per frame
@@ -66,7 +66,6 @@ public class PlayerActions : MonoBehaviour
 
     private void Punching(InputAction.CallbackContext context)
     {
-        
         animator.SetBool("Punch", true);
 
         StartCoroutine(PunchingEnum());
@@ -116,11 +115,11 @@ public class PlayerActions : MonoBehaviour
             if (collider.gameObject != gameObject)
             {
                 // add damage to the enemy instead
-                healthController.playerHealth--;
+                collider.GetComponent<HealthController>().playerHealth--;
                 var rigid = collider.GetComponent<Rigidbody>();
 
                 rigid.AddForce(collider.gameObject.transform.position * groundPoundForce);
-                Debug.Log("Player Ground Pounded");
+               
             }
         }
         
@@ -128,7 +127,7 @@ public class PlayerActions : MonoBehaviour
 
     private IEnumerator PunchingEnum()
     {
-        WaitForSeconds wait = new WaitForSeconds(.4f);
+        WaitForSeconds wait = new WaitForSeconds(.35f);
 
         yield return wait;
 
@@ -142,12 +141,11 @@ public class PlayerActions : MonoBehaviour
                 if (collider.gameObject != gameObject)
                 {
                     // add damage to the enemy instead
-                    healthController.playerHealth--;
+                   
+                    collider.GetComponentInChildren<HealthController>().playerHealth--;
                     var rigid = collider.GetComponent<Rigidbody>();
 
                     rigid.AddForce(collider.gameObject.transform.position * punchImpact);
-                    Debug.Log("PlayerHit");
-
                 }
             }
         }
@@ -160,7 +158,7 @@ public class PlayerActions : MonoBehaviour
         // Gizmos.DrawWireSphere(gameObject.transform.position, groundPoundRadius);
 
         // melee sphere for debugging
-       //  Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
+         //Gizmos.DrawWireSphere(punchArm.transform.position, punchRadius);
     }
     private void OnCollisionEnter(Collision collision)
     {
