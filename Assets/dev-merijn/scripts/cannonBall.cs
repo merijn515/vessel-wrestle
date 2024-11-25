@@ -38,7 +38,7 @@ public class cannonBall : MonoBehaviour
         }
 
         yield return null;
-        //Destroy(gameObject);
+        Destroy(gameObject);
         StopCoroutine(cannonBallExplode);
     }
 }
