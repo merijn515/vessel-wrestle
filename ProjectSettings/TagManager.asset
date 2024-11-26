@@ -8,6 +8,7 @@ TagManager:
   - Punch arm
   - Ground
   - slownessOil
+  - barrel
   layers:
   - Default
   - TransparentFX
