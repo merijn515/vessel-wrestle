@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField]
     private SkinnedMeshRenderer meshRenderer;
 
+    private float baseSpeed;
    
 
     /*    [SerializeField] InputActionReference movement;*/
@@ -36,6 +37,7 @@ public class playerMovement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        baseSpeed = speed;
        // meshRenderer = transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
     }
 
@@ -60,11 +62,11 @@ public class playerMovement : MonoBehaviour
         }
         if (isSlowed == false)
         {
-            speed = 15f;
+            speed = baseSpeed;
         }
         if (isSlowed == true)
         {
-            speed = 7.5f;
+            speed = baseSpeed -4f;
         }
     }
     private void FixedUpdate()
