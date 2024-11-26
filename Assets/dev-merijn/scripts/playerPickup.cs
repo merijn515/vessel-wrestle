@@ -67,6 +67,7 @@ public class playerPickup : MonoBehaviour
                 other.gameObject.layer = 6;
                 holdingObject = true;
                 GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
+                animator.SetBool("test holdBarrel", true);
             }
         }
     }
@@ -102,6 +103,7 @@ public class playerPickup : MonoBehaviour
         {
             objectHold.GetComponent<barrel>().isThrown = true;
             GetComponent<playerMovement>().animator.SetBool("test moveBarrel trigger", false);
+            animator.SetBool("test holdBarrel", false);
         }
         objectHold = null;
         StopCoroutine(ThrowRoutine());
