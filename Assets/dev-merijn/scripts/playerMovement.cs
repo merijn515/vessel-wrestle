@@ -19,7 +19,7 @@ public class playerMovement : MonoBehaviour
     private bool isSlowed;
 
     [SerializeField]
-    private Animator animator;
+    public Animator animator;
 
     [SerializeField]
     private SkinnedMeshRenderer meshRenderer;
@@ -68,16 +68,72 @@ public class playerMovement : MonoBehaviour
         {
             playerRb.velocity = testMove * speed;
         }
+        #region barrelWalkAttempts
+        /*        if (testMove != Vector3.zero)
+                {
+                    //Debug.Log(playerRb.velocity);
+                    transform.right = testMove*//* + new Vector3(0f, 0f, 90f)*//*;
+                    animator.SetBool("test move trigger", true);
+                }
+                //else
+                if(testMove == Vector3.zero)
+                {
+                    animator.SetBool("test move trigger", false);
+                }*/
+
+        /*        if (testMove != Vector3.zero*//* && GetComponent<playerPickup>().objectHold.CompareTag("barrel")*//*)
+                {
+                    transform.right = testMove;
+                    //if (GetComponent<playerPickup>().objectHold != null)
+                    //{   
+                    if (GetComponent<playerPickup>().objectHold == null || !GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+                    {
+                        animator.SetBool("test move trigger", true);
+                    } 
+                    if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+                    {
+                    animator.SetBool("test moveBarrel trigger", true);    
+                    }
+                    //}
+                }
+                if (testMove == Vector3.zero*//* && GetComponent<playerPickup>().objectHold.CompareTag("barrel")*//*)
+                {
+
+                    if (GetComponent<playerPickup>().objectHold == null || !GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+                    {
+                        animator.SetBool("test move trigger", false);
+                    }
+                    if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+                    {
+                    animator.SetBool("test moveBarrel trigger", false);    
+                    }
+                }*/
+        #endregion
+
         if (testMove != Vector3.zero)
         {
-            //Debug.Log(playerRb.velocity);
-            transform.right = testMove/* + new Vector3(0f, 0f, 90f)*/;
+            transform.right = testMove;
+            if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+            {
+                animator.SetBool("test moveBarrel trigger", true);
+            } //else
+            if (GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
+            {
             animator.SetBool("test move trigger", true);
+            }
         }
-        //else
-        if(testMove == Vector3.zero)
+
+        if (testMove == Vector3.zero)
         {
-            animator.SetBool("test move trigger", false);
+            //animator.SetBool("test move trigger", false);
+            if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+            {
+                animator.SetBool("test moveBarrel trigger", false);
+            }
+            if(GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
+            {
+                animator.SetBool("test move trigger", false);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
