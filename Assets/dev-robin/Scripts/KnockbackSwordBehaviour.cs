@@ -16,9 +16,11 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //need to change the references when multiple players are added
         playerActions = FindAnyObjectByType<PlayerActions>();
         playerPickup = FindAnyObjectByType<playerPickup>();
-        animator = GetComponentInChildren<Animator>();
+
+        animator = playerPickup.rightHand.GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,9 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     {
         if (animator.GetBool("Punch") && playerPickup.holdingObject)
         {
+           
             KnockBackBehaviour();
+
         }
     }
 
@@ -36,12 +40,15 @@ public class KnockbackSwordBehaviour : MonoBehaviour
 
         foreach (Collider collider in punchCollider)
         {
-            // add damage to the enemy instead
-            var rigid = collider.GetComponent<Rigidbody>();
+            if (collider.gameObject != playerActions.gameObject)
+            {
+                // add damage to the enemy instead
+                var rigid = collider.GetComponent<Rigidbody>();
 
-            rigid.AddForce(collider.gameObject.transform.position * swordImpact);
-            Destroy(gameObject);
-            Debug.Log("Swordhit");
+                rigid.AddForce(collider.gameObject.transform.position * swordImpact);
+                Destroy(gameObject);
+                Debug.Log("Swordhit");
+            }
         }
 
     }

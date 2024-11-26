@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class playerPickup : MonoBehaviour
 {
     [SerializeField]
-    private GameObject rightHand;
+    public GameObject rightHand;
     [SerializeField]
     public GameObject objectHold;
     [SerializeField]
