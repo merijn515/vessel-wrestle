@@ -215,57 +215,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1476336911}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ThrowObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: playerPickup, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695555105527923851, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8295328492888739782, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: objectHold
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295328492888739782, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: holdingObject
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881365061606063582, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1476336916}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
 --- !u!1 &635773156
 GameObject:
@@ -602,45 +559,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1476336908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-  m_PrefabInstance: {fileID: 317526446}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1476336911 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8295328492888739782, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-  m_PrefabInstance: {fileID: 317526446}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476336908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744a9d23527734c4ab051e2d8de682cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &1476336916
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476336908}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.5291119
-  m_Height: 19.381554
-  m_Direction: 1
-  m_Center: {x: -0.017427444, y: 19.190777, z: -0.099999905}
 --- !u!1001 &1786247914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,14 +610,6 @@ PrefabInstance:
     - target: {fileID: 766957776131779042, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
       propertyPath: m_Name
       value: Moltov
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135527116161736225, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
-      propertyPath: lastingTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135527116161736225, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
-      propertyPath: areaOfEffect
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
