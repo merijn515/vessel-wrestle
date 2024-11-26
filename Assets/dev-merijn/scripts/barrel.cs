@@ -12,7 +12,6 @@ public class barrel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class barrel : MonoBehaviour
     {
         if (collision.gameObject.name == "ground" && isThrown == true)
         {
-            Instantiate(oil, transform.position, Quaternion.identity);
+            Instantiate(oil, new Vector3(gameObject.transform.position.x, collision.transform.position.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
         }
     }
 }
