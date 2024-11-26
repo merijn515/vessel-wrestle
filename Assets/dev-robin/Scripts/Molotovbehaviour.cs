@@ -10,43 +10,68 @@ public class Molotovbehaviour : MonoBehaviour
     [SerializeField] LayerMask hitlayer;
 
     private bool isActive;
-    public bool canExplode;
+    [SerializeField]private bool canBreak;
     // Start is called before the first frame update
     void Start()
     {
         playerPickup = FindAnyObjectByType<playerPickup>();
+        StartCoroutine(MolotovExplosion());
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerPickup.objectHold == gameObject)
+        {
+            canBreak = true;
+        }
+
         if (isActive)
         {
-            
+            lastingTime -= Time.deltaTime;
+
+            if (lastingTime <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
-        MolotovExplosion();
     }
 
-    private void MolotovExplosion()
+    private IEnumerator MolotovExplosion()
     {
-        float wait =+ Time.time;
-        Debug.Log(wait);
-        if(wait == lastingTime)
+        while (true)
         {
-            Destroy(gameObject);
+            if (isActive)
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.position, areaOfEffect, hitlayer);
+
+                foreach (Collider collider in colliders)
+                {
+                    yield return new WaitForSeconds(1);
+                    collider.GetComponentInChildren<HealthController>().playerHealth -= 1;
+                }
+               
+            }
+
+            yield return null;
         }
-        while (wait < lastingTime)
-        {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, areaOfEffect, hitlayer);
-        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (canExplode && collision.gameObject.tag == "Ground")
+        if ( canBreak && collision.gameObject.tag == "Ground")
         {
-            gameObject.GetComponentInChildren<GameObject>().SetActive(false);
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             isActive = true;
         }
+
+
     }
-}
+
+    private void OnDrawGizmos()
+    {
+        // the ground pound sphere for debugging -
+         Gizmos.DrawWireSphere(gameObject.transform.position, areaOfEffect);
+    }
+ }

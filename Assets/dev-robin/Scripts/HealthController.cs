@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public int playerHealth;
+    public float playerHealth;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Awake()
@@ -21,7 +21,7 @@ public class HealthController : MonoBehaviour
 
     private void HealthCheck()
     {
-        if(playerHealth == 0)
+        if(playerHealth <= 0)
         {
             //ragdoll still needs to be made
             RagdollActive();

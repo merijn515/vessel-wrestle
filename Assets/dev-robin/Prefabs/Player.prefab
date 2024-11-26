@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8295328492888739782}
   - component: {fileID: 6483515020612114892}
   - component: {fileID: 1695555105527923851}
+  - component: {fileID: 5572573925274965102}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -124,8 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 5307367076255638609}
   objectHold: {fileID: 0}
-  holdingObject: 1
-  animator: {fileID: 0}
+  holdingObject: 0
+  animator: {fileID: 1746672280220822610}
 --- !u!114 &6483515020612114892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,19 @@ MonoBehaviour:
     m_ActionId: 42cf1903-eaf5-48d7-b454-d7e0f31962c7
     m_ActionName: game/move[/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/upArrow,/Keyboard/downArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8295328492888739782}
+        m_TargetAssemblyTypeName: playerPickup, Assembly-CSharp
+        m_MethodName: ThrowObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d6fb0d82-c6b4-43c9-8413-daaef4e8dfc3
     m_ActionName: game/throw[/Keyboard/t]
   - m_PersistentCalls:
@@ -211,6 +224,29 @@ MonoBehaviour:
   m_DefaultActionMap: game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!136 &5572573925274965102
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200159646056780229}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.5291119
+  m_Height: 19.381554
+  m_Direction: 1
+  m_Center: {x: -0.017427444, y: 19.190777, z: -0.099999905}
 --- !u!1001 &1887015441047495274
 PrefabInstance:
   m_ObjectHideFlags: 0
