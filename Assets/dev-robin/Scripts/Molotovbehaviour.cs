@@ -5,12 +5,14 @@ using UnityEngine;
 public class Molotovbehaviour : MonoBehaviour
 {
     private playerPickup playerPickup;
+
     [SerializeField] float lastingTime;
     [SerializeField] float areaOfEffect;
+
     [SerializeField] LayerMask hitlayer;
 
     private bool isActive;
-    [SerializeField]private bool canBreak;
+    private bool canBreak;
     // Start is called before the first frame update
     void Start()
     {
