@@ -66,7 +66,7 @@ public class playerMovement : MonoBehaviour
         }
         if (isSlowed == true)
         {
-            speed = baseSpeed -4f;
+            speed = baseSpeed -3f;
         }
     }
     private void FixedUpdate()
