@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class FightingController : MonoBehaviour
+public class Molotovbehaviour : MonoBehaviour
 {
-    [SerializeField] InputActionReference hitting;
     // Start is called before the first frame update
     void Start()
     {

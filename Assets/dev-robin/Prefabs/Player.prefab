@@ -56,6 +56,7 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 4096
+  punchArm: {fileID: 5307367076255638609}
   groundPoundForce: 8
   groundPoundRadius: 10
   punchRadius: 1
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 0}
-  speed: 5
+  speed: 15
   testMove: {x: 0, y: 0, z: 0}
   isMoving: 0
   isSlowed: 0
