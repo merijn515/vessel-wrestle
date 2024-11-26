@@ -12,11 +12,12 @@ public class PlayerActions : MonoBehaviour
     public LayerMask hitLayer;
 
     private Rigidbody rb;
-    private GameObject punchArm;
+   [SerializeField] private GameObject punchArm;
 
     private Animator animator;
 
     private playerPickup playerPickup;
+    private playerMovement playerMovement;
 
     // variables
     [SerializeField] int groundPoundForce;
@@ -51,10 +52,8 @@ public class PlayerActions : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
 
-        punchArm = GameObject.FindGameObjectWithTag("Punch arm").gameObject;
-
-        playerPickup = FindAnyObjectByType<playerPickup>();
-
+        playerPickup = GetComponent<playerPickup>();
+        playerMovement = GetComponent<playerMovement>();
        
     }
 
@@ -62,28 +61,30 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
         animator.SetBool("IsJumping", !isOnGround);
+        AnimationMovementCheck();
+        
     }
 
     private void Punching(InputAction.CallbackContext context)
     {
         animator.SetBool("Punch", true);
-
         StartCoroutine(PunchingEnum());
+
+       
     }
     private void Jumping(InputAction.CallbackContext context)
     {
+        
         if (jumpAmount > 0)
         {
             jumpAmount--;
             isOnGround = false;
 
-            animator.SetBool("IsJumping", !isOnGround);
-
+            playerMovement.isMoving = false;
             rb.AddForce(0,jumpForce,0,ForceMode.Impulse);
 
-            rb.velocity = Vector3.zero;
+           
         }
-        
     }
 
     private void GroundPound(InputAction.CallbackContext context)
@@ -167,6 +168,18 @@ public class PlayerActions : MonoBehaviour
             isOnGround = true;
             animator.SetBool("GroundPound", false);
             jumpAmount = 2;
+        }
+    }
+
+    private void AnimationMovementCheck()
+    {
+        if (animator.GetBool("GroundPound"))
+        {
+            playerMovement.isMoving = false;
+        }
+        else if (animator.GetBool("Punch"))
+        {
+            playerMovement.isMoving = false;
         }
     }
 }

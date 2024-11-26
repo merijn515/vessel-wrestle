@@ -13,8 +13,8 @@ public class playerMovement : MonoBehaviour
     private float speed;
     [SerializeField]
     private Vector3 testMove;
-    [SerializeField]
-    private bool isMoving;
+    
+    public bool isMoving;
 
     [SerializeField]
     private bool isSlowed;
@@ -60,19 +60,19 @@ public class playerMovement : MonoBehaviour
         }
         if (isSlowed == false)
         {
-            speed = 5f;
+            speed = 15f;
         }
         if (isSlowed == true)
         {
-            speed = 2.5f;
+            speed = 7.5f;
         }
     }
     private void FixedUpdate()
     {
         if (isMoving == true)
         {
-
-            playerRb.velocity = testMove * speed;
+            
+            playerRb.velocity = testMove * speed + Physics.gravity * 0.3f;
 
         }
         if (testMove != Vector3.zero)

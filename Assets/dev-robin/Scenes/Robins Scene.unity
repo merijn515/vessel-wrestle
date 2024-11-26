@@ -167,6 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 3
+--- !u!1 &129621151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5307367076255638609, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+  m_PrefabInstance: {fileID: 317526446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &317526446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,9 +220,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1994637704430201625, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: punchArm
+      value: 
+      objectReference: {fileID: 129621151}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483515020612114892, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: speed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

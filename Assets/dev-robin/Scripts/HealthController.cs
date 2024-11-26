@@ -25,7 +25,6 @@ public class HealthController : MonoBehaviour
         {
             //ragdoll still needs to be made
             RagdollActive();
-            Debug.Log("dead");
         }
 
       
