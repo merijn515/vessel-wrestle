@@ -12,6 +12,7 @@ public class PlayerActions : MonoBehaviour
     public LayerMask hitLayer;
 
     private Rigidbody rb;
+
    [SerializeField] private GameObject punchArm;
 
     private Animator animator;

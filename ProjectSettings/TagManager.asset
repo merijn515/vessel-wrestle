@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - slownessOil
   - barrel
+  - Player 2
   layers:
   - Default
   - TransparentFX
