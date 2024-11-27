@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,8 +13,8 @@ public class playerMovement : MonoBehaviour
     private float speed;
     [SerializeField]
     private Vector3 testMove;
-    [SerializeField]
-    private bool isMoving;
+    
+    public bool isMoving;
 
     [SerializeField]
     private bool isSlowed;
@@ -24,14 +25,20 @@ public class playerMovement : MonoBehaviour
     [SerializeField]
     private SkinnedMeshRenderer meshRenderer;
 
-/*    [SerializeField] InputActionReference movement;*/
+    private float baseSpeed;
+   
+
+    /*    [SerializeField] InputActionReference movement;*/
 
     // Start is called before the first frame update
+
+   
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-        meshRenderer = transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
+        animator = GetComponentInChildren<Animator>();
+        baseSpeed = speed;
+       // meshRenderer = transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
@@ -55,60 +62,34 @@ public class playerMovement : MonoBehaviour
         }
         if (isSlowed == false)
         {
-            speed = 5f;
+            speed = baseSpeed;
         }
         if (isSlowed == true)
         {
-            speed = 2.5f;
+            speed = baseSpeed -3f;
         }
     }
     private void FixedUpdate()
     {
         if (isMoving == true)
         {
-            playerRb.velocity = testMove * speed;
+            
+            playerRb.velocity = testMove * speed + Physics.gravity * 0.3f;
+
         }
-        #region barrelWalkAttempts
         /*        if (testMove != Vector3.zero)
                 {
                     //Debug.Log(playerRb.velocity);
                     transform.right = testMove*//* + new Vector3(0f, 0f, 90f)*//*;
                     animator.SetBool("test move trigger", true);
+
                 }
                 //else
                 if(testMove == Vector3.zero)
                 {
                     animator.SetBool("test move trigger", false);
-                }*/
 
-        /*        if (testMove != Vector3.zero*//* && GetComponent<playerPickup>().objectHold.CompareTag("barrel")*//*)
-                {
-                    transform.right = testMove;
-                    //if (GetComponent<playerPickup>().objectHold != null)
-                    //{   
-                    if (GetComponent<playerPickup>().objectHold == null || !GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
-                    {
-                        animator.SetBool("test move trigger", true);
-                    } 
-                    if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
-                    {
-                    animator.SetBool("test moveBarrel trigger", true);    
-                    }
-                    //}
-                }
-                if (testMove == Vector3.zero*//* && GetComponent<playerPickup>().objectHold.CompareTag("barrel")*//*)
-                {
-
-                    if (GetComponent<playerPickup>().objectHold == null || !GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
-                    {
-                        animator.SetBool("test move trigger", false);
-                    }
-                    if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
-                    {
-                    animator.SetBool("test moveBarrel trigger", false);    
-                    }
                 }*/
-        #endregion
 
         if (testMove != Vector3.zero)
         {
@@ -119,22 +100,29 @@ public class playerMovement : MonoBehaviour
             } //else
             if (GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
             {
-            animator.SetBool("test move trigger", true);
+                //Debug.Log(playerRb.velocity);
+                transform.right = testMove/* + new Vector3(0f, 0f, 90f)*/;
+                animator.SetBool("test move trigger", true);
             }
+
         }
 
         if (testMove == Vector3.zero)
-        {
-            //animator.SetBool("test move trigger", false);
-            if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+            //else
+            if (testMove == Vector3.zero)
             {
-                animator.SetBool("test moveBarrel trigger", false);
-            }
-            if(GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
-            {
+                //animator.SetBool("test move trigger", false);
+                if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+                {
+                    animator.SetBool("test moveBarrel trigger", false);
+                }
+                if (GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
+                {
+                    animator.SetBool("test move trigger", false);
+                }
                 animator.SetBool("test move trigger", false);
+
             }
-        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -156,6 +144,7 @@ public class playerMovement : MonoBehaviour
         //Debug.Log(testMove);
         if (context.performed)
         {
+          
             //playerRb.velocity = testMove * speed;
             isMoving = true;
             //animator.SetBool("test move trigger", true);
