@@ -10,6 +10,7 @@ public class Molotovbehaviour : MonoBehaviour
     [SerializeField] float areaOfEffect;
 
     [SerializeField] LayerMask hitlayer;
+    [SerializeField] GameObject fire;
 
     private bool isActive;
     private bool canBreak;
@@ -30,6 +31,7 @@ public class Molotovbehaviour : MonoBehaviour
 
         if (isActive)
         {
+           
             lastingTime -= Time.deltaTime;
 
             if (lastingTime <= 0)
@@ -45,6 +47,11 @@ public class Molotovbehaviour : MonoBehaviour
         {
             if (isActive)
             {
+                var fireRot = new Quaternion(fire.transform.rotation.x, fire.transform.rotation.y, fire.transform.rotation.z, fire.transform.rotation.w);
+                var clone = Instantiate(fire,gameObject.transform.position,fireRot);
+                clone.transform.parent = gameObject.transform;
+                clone.transform.localScale = fire.transform.localScale;
+
                 Collider[] colliders = Physics.OverlapSphere(transform.position, areaOfEffect, hitlayer);
 
                 foreach (Collider collider in colliders)

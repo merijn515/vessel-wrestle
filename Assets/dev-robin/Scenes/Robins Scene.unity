@@ -573,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 250864813989421352, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 103.06278
+      value: 98.59987
       objectReference: {fileID: 0}
     - target: {fileID: 250864813989421352, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
       propertyPath: m_LocalPosition.z
@@ -611,6 +611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moltov
       objectReference: {fileID: 0}
+    - target: {fileID: 8135527116161736225, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 3477669419658013665, guid: 36466fd9b5feac440af33892535df8c0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
