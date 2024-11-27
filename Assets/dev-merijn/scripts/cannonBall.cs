@@ -11,6 +11,9 @@ public class cannonBall : MonoBehaviour
     [SerializeField]
     private float explosionPower;
 
+    [SerializeField]
+    private GameObject explosionParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,7 @@ public class cannonBall : MonoBehaviour
         }
 
         yield return null;
+        Destroy(Instantiate(explosionParticles, transform.position, Quaternion.identity), 3);
         Destroy(gameObject);
         StopCoroutine(cannonBallExplode);
     }
