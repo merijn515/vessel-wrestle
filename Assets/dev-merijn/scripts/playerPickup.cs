@@ -34,15 +34,15 @@ public class playerPickup : MonoBehaviour
         {
             if (holdingObject == true)
             {
-            objectHold.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                objectHold.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 if (objectHold.CompareTag("itemPickup"))
                 {
-            objectHold.transform.position = rightHand.transform.position;
-                objectHold.transform.rotation = rightHand.transform.rotation * Quaternion.Euler(0f, 0f, 90f);
+                    objectHold.transform.position = rightHand.transform.position;
+                    objectHold.transform.rotation = rightHand.transform.rotation * Quaternion.Euler(0f, 0f, 90f);
                 }
                 if (objectHold.CompareTag("barrel"))
                 {
-            objectHold.transform.position = testBarrelPos.transform.position;
+                    objectHold.transform.position = testBarrelPos.transform.position;
                     objectHold.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
                     /*objectHold.transform.forward = gameObject.transform.right;*/
                 }
@@ -52,14 +52,15 @@ public class playerPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (/*other.gameObject.CompareTag("itemPickup") && */objectHold == null)
+        if (/*other.gameObject.CompareTag("itemPickup") && */objectHold == null && (other.gameObject.CompareTag("itemPickup") || other.gameObject.CompareTag("barrel")))
         {
             /*other.gameObject.transform.position = rightHand.transform.position;*/
+
             if (other.gameObject.CompareTag("itemPickup"))
             {
-            objectHold = other.gameObject;
-            other.gameObject.layer = 6;
-            holdingObject = true;                
+                objectHold = other.gameObject;
+                other.gameObject.layer = 6;
+                holdingObject = true;                
             }
             if (other.gameObject.CompareTag("barrel"))
             {
@@ -78,7 +79,7 @@ public class playerPickup : MonoBehaviour
         {
             if (objectHold.CompareTag("itemPickup"))
             {
-            animator.SetTrigger("test trigger");
+                animator.SetTrigger("test trigger");
             }
             if (objectHold.CompareTag("barrel"))
             {
