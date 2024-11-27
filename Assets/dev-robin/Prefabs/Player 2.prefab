@@ -122,9 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de3966743970ef47958dbaa26f12060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: -5545247015785554864, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
-  groundPound: {fileID: -481629347994618416, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
-  punch: {fileID: 9089410666228564101, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
   hitLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -235,11 +232,35 @@ MonoBehaviour:
     m_ActionId: e7883917-d013-459d-b0c1-a9ce71b49bec
     m_ActionName: Controller/Movement[/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3429085861995834991}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: Punching
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ba698240-4702-4520-a0b8-39b5a6a1c5ae
     m_ActionName: Controller/Punch[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3429085861995834991}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: Jumping
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8cdb13ff-8106-4937-9716-01d38775d3b7
     m_ActionName: Controller/Jump[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -259,7 +280,19 @@ MonoBehaviour:
     m_ActionId: 0e0ade3f-b5c8-4126-b0ec-a76c87a52a0a
     m_ActionName: Controller/Throw[/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3429085861995834991}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: GroundPound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 19b052b9-6667-4b22-82ed-3de396df2367
     m_ActionName: Controller/GroundPound[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 1
@@ -656,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f7d46c43fe7094bb8dea1c4cf24cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 5
+  playerHealth: 10
 --- !u!1 &1506889916029524792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8455480132746055195, guid: 59b65fbd5eb488840ac661c574abcf67, type: 3}

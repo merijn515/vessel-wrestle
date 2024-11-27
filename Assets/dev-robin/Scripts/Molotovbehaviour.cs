@@ -13,21 +13,16 @@ public class Molotovbehaviour : MonoBehaviour
     [SerializeField] GameObject fire;
 
     private bool isActive;
-    private bool canBreak;
+    public bool canBreak;
     // Start is called before the first frame update
     void Start()
     {
-        playerPickup = FindAnyObjectByType<playerPickup>();
         StartCoroutine(MolotovExplosion());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerPickup.objectHold == gameObject)
-        {
-            canBreak = true;
-        }
 
         if (isActive)
         {

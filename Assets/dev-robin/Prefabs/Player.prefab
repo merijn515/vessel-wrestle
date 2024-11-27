@@ -51,9 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de3966743970ef47958dbaa26f12060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: -5598373761867280410, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
-  groundPound: {fileID: 3220212671368290231, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
-  punch: {fileID: 1020268224402487519, guid: df5c2db2c83417c4abf87681f7b59edf, type: 3}
   hitLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -204,15 +201,51 @@ MonoBehaviour:
     m_ActionId: d6fb0d82-c6b4-43c9-8413-daaef4e8dfc3
     m_ActionName: game/throw[/Keyboard/t]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3999724965238181695}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: Jumping
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b96e42d4-f4de-498d-a9e8-31e142d53fc8
     m_ActionName: game/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3999724965238181695}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: Punching
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fedc94f9-d15c-47f5-b541-377193d3a55b
     m_ActionName: game/Punch[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3999724965238181695}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: GroundPound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 4d893042-d41a-4726-9cc5-ee8c880e27d9
     m_ActionName: game/GroundPound[/Keyboard/s]
   - m_PersistentCalls:
@@ -715,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f7d46c43fe7094bb8dea1c4cf24cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 5
+  playerHealth: 10
 --- !u!4 &2142235639405168001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 740faf23f92b7604a84fd7c718634f87, type: 3}

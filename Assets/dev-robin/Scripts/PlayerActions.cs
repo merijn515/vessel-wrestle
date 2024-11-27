@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class PlayerActions : MonoBehaviour
 {
     //references
-    [SerializeField] InputActionReference jump,groundPound,punch;
 
     public LayerMask hitLayer;
 
@@ -33,21 +32,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] float jumpForce;
 
     [SerializeField] int punchImpact;    
-    private void OnEnable()
-    {
-        jump.action.performed += Jumping;
-        groundPound.action.performed += GroundPound;
-        punch.action.performed += Punching;
-      
-    }
-
-    private void OnDisable()
-    {
-        jump.action.performed -= Jumping;
-        groundPound.action.performed -= GroundPound;
-        punch.action.performed -= Punching;
-      
-    }
+   
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -66,14 +51,14 @@ public class PlayerActions : MonoBehaviour
         
     }
 
-    private void Punching(InputAction.CallbackContext context)
+    public void Punching(InputAction.CallbackContext context)
     {
         animator.SetBool("Punch", true);
         StartCoroutine(PunchingEnum());
 
        
     }
-    private void Jumping(InputAction.CallbackContext context)
+    public void Jumping(InputAction.CallbackContext context)
     {
         
         if (jumpAmount > 0)
@@ -88,7 +73,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private void GroundPound(InputAction.CallbackContext context)
+    public void GroundPound(InputAction.CallbackContext context)
     {
         if(!isOnGround)
         {
@@ -129,7 +114,7 @@ public class PlayerActions : MonoBehaviour
 
     private IEnumerator PunchingEnum()
     {
-        WaitForSeconds wait = new WaitForSeconds(.35f);
+        WaitForSeconds wait = new WaitForSeconds(.2f);
 
         yield return wait;
 
@@ -142,12 +127,12 @@ public class PlayerActions : MonoBehaviour
             {
                 if (collider.gameObject != gameObject)
                 {
-                    // add damage to the enemy instead
-                   
+                    
                     collider.GetComponentInChildren<HealthController>().playerHealth--;
                     var rigid = collider.GetComponent<Rigidbody>();
 
                     rigid.AddForce(collider.gameObject.transform.position * punchImpact);
+                    
                 }
             }
         }

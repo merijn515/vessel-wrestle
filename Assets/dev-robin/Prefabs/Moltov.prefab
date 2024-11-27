@@ -119,11 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a9c230c6ce74244971096696bd5562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastingTime: 5
+  lastingTime: 9
   areaOfEffect: 20
   hitlayer:
     serializedVersion: 2
     m_Bits: 4096
+  fire: {fileID: 3477669419658013665, guid: 36466fd9b5feac440af33892535df8c0, type: 3}
+  canBreak: 0
 --- !u!1 &5200359697653258384
 GameObject:
   m_ObjectHideFlags: 0

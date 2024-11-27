@@ -21,7 +21,7 @@ public class playerPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -42,11 +42,20 @@ public class playerPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("itemPickup") && objectHold == null)
         {
-            /*other.gameObject.transform.position = rightHand.transform.position;*/
-            objectHold = other.gameObject;
+            if ( other.gameObject.GetComponent<Molotovbehaviour>() != null)
+            {
+                other.gameObject.GetComponent<Molotovbehaviour>().canBreak = true;
+
+            }else if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
+            {
+                other.gameObject.GetComponent<KnockbackSwordBehaviour>().canUse= true;
+            }
+           
+          /*other.gameObject.transform.position = rightHand.transform.position;*/
+          objectHold = other.gameObject;
             //other.gameObject.layer = 6;
             holdingObject = true;
-        }
+        } 
     }
 
     public void ThrowObject(InputAction.CallbackContext context)
