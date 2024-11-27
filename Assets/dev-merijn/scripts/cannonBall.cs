@@ -37,7 +37,14 @@ public class cannonBall : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
             if (rb != null)
+            {
                 rb.AddExplosionForce(explosionPower, explosionPos, explosionRadius);
+            }
+
+            if (hit.gameObject.layer == 12)
+            {
+                hit.gameObject.transform.GetChild(0).gameObject.GetComponent<HealthController>().playerHealth -= 5;
+            }
         }
 
         yield return null;
