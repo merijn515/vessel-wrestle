@@ -53,8 +53,12 @@ public class PlayerActions : MonoBehaviour
 
     public void Punching(InputAction.CallbackContext context)
     {
-        animator.SetBool("Punch", true);
-        StartCoroutine(PunchingEnum());
+        if (context.performed)
+        {
+            animator.SetBool("Punch", true);
+       
+            StartCoroutine(PunchingEnum());
+        }
 
        
     }
@@ -65,7 +69,6 @@ public class PlayerActions : MonoBehaviour
             if (jumpAmount > 0 && context.performed)
             {
                 jumpAmount--;
-                Debug.Log("jumping");
                 isOnGround = false;
 
                 playerMovement.isMoving = false;
@@ -105,10 +108,10 @@ public class PlayerActions : MonoBehaviour
             if (collider.gameObject != gameObject)
             {
                 // add damage to the enemy instead
-                collider.GetComponent<HealthController>().playerHealth--;
+                collider.GetComponentInChildren<HealthController>().playerHealth--;
                 var rigid = collider.GetComponent<Rigidbody>();
 
-                rigid.AddForce(collider.gameObject.transform.position * groundPoundForce);
+                rigid.AddForce(collider.gameObject.transform.position * groundPoundForce, ForceMode.Impulse);
                
             }
         }
@@ -117,7 +120,7 @@ public class PlayerActions : MonoBehaviour
 
     private IEnumerator PunchingEnum()
     {
-        WaitForSeconds wait = new WaitForSeconds(.2f);
+        WaitForSeconds wait = new WaitForSeconds(.3f);
 
         yield return wait;
 
@@ -134,7 +137,7 @@ public class PlayerActions : MonoBehaviour
                     collider.GetComponentInChildren<HealthController>().playerHealth--;
                     var rigid = collider.GetComponent<Rigidbody>();
 
-                    rigid.AddForce(collider.gameObject.transform.position * punchImpact);
+                    rigid.AddForce(collider.gameObject.transform.position * punchImpact,ForceMode.Impulse);
                     
                 }
             }
@@ -169,6 +172,16 @@ public class PlayerActions : MonoBehaviour
         else if (animator.GetBool("Punch"))
         {
             playerMovement.isMoving = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Death barier")
+        {
+            gameObject.GetComponentInChildren<HealthController>().playerHealth = 0;
+            
+            Debug.Log("Player died");
         }
     }
 }

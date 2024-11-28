@@ -17,7 +17,17 @@ public class MultiplayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        for(int i =0; i < GameObject.FindGameObjectsWithTag("Pirate team").Length; i++)
+        {
+           if( GameObject.FindGameObjectsWithTag("Pirate team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0)
+            {
+                Debug.Log("Marine Team win");
+
+            } else if(GameObject.FindGameObjectsWithTag("Marine team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0)
+            {
+                Debug.Log("Pirate team win");
+            }
+        } 
     }
 
     public void OnPlayerJoin()

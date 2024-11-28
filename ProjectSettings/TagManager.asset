@@ -11,6 +11,7 @@ TagManager:
   - barrel
   - Marine team
   - Pirate team
+  - Death barier
   layers:
   - Default
   - TransparentFX
