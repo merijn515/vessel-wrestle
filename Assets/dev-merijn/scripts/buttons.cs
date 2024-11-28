@@ -31,15 +31,6 @@ public class buttons : MonoBehaviour
     }
     public void QuitGameButton()
     {
-        Debug.Log("quit game");
-        Debug.Log("ceil " + Mathf.Ceil(Mathf.Infinity));
-        Debug.Log("floor " + Mathf.Floor(Mathf.Infinity));
-        Debug.Log("ceilToInt " + Mathf.CeilToInt(Mathf.Infinity));
-        Debug.Log("floorToInt " + Mathf.FloorToInt(Mathf.Infinity));
-        Debug.Log("ceil " + Mathf.Ceil(Mathf.NegativeInfinity));
-        Debug.Log("floor " + Mathf.Floor(Mathf.NegativeInfinity));
-        Debug.Log("ceilToInt " + Mathf.CeilToInt(Mathf.NegativeInfinity));
-        Debug.Log("floorToInt " + Mathf.FloorToInt(Mathf.NegativeInfinity));
         Application.Quit();
     }
 }
