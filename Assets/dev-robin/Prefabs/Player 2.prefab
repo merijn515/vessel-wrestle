@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1902535147876799903}
   m_Layer: 12
   m_Name: Player 2
-  m_TagString: Player 2
+  m_TagString: Marine team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   groundPoundForce: 8
   groundPoundRadius: 10
   punchRadius: 1
+  jumpAmount: 2
   jumpForce: 12
   punchImpact: 3
 --- !u!114 &4532553642423362315

@@ -6,6 +6,8 @@ public class HealthController : MonoBehaviour
 {
     public float playerHealth;
     private Rigidbody rb;
+
+    public bool joined = false;
     // Start is called before the first frame update
     void Awake()
     {

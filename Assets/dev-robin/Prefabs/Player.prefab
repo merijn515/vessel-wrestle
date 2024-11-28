@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5572573925274965102}
   m_Layer: 12
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Pirate team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   groundPoundForce: 8
   groundPoundRadius: 10
   punchRadius: 1
+  jumpAmount: 2
   jumpForce: 12
   punchImpact: 3
 --- !u!65 &8881365061606063582

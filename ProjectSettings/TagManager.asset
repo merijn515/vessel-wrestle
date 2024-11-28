@@ -9,7 +9,8 @@ TagManager:
   - Ground
   - slownessOil
   - barrel
-  - Player 2
+  - Marine team
+  - Pirate team
   layers:
   - Default
   - TransparentFX

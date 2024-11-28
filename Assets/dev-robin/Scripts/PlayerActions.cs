@@ -27,7 +27,7 @@ public class PlayerActions : MonoBehaviour
 
     private bool isOnGround = true;
 
-    private int jumpAmount = 2;
+   [SerializeField] private int jumpAmount = 2;
 
     [SerializeField] float jumpForce;
 
@@ -60,22 +60,25 @@ public class PlayerActions : MonoBehaviour
     }
     public void Jumping(InputAction.CallbackContext context)
     {
+
         
-        if (jumpAmount > 0)
-        {
-            jumpAmount--;
-            isOnGround = false;
+            if (jumpAmount > 0 && context.performed)
+            {
+                jumpAmount--;
+                Debug.Log("jumping");
+                isOnGround = false;
 
-            playerMovement.isMoving = false;
-            rb.AddForce(0,jumpForce,0,ForceMode.Impulse);
+                playerMovement.isMoving = false;
+                rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
 
-           
-        }
+
+            }
+        
     }
 
     public void GroundPound(InputAction.CallbackContext context)
     {
-        if(!isOnGround)
+        if(!isOnGround && context.performed)
         {
             //ground pound animations still needs to be added
             animator.SetBool("GroundPound", true);

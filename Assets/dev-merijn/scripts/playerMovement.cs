@@ -74,7 +74,7 @@ public class playerMovement : MonoBehaviour
         if (isMoving == true)
         {
             
-            playerRb.velocity = testMove * speed + Physics.gravity * 0.3f;
+            playerRb.velocity = testMove * speed + Physics.gravity * 0.25f;
 
         }
         if (testMove != Vector3.zero)
