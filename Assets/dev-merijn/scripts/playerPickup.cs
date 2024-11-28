@@ -13,6 +13,9 @@ public class playerPickup : MonoBehaviour
     public bool holdingObject;
 
     [SerializeField]
+    private GameObject testBarrelPos;
+
+    [SerializeField]
     private Animator animator;
 
     [SerializeField]
@@ -39,7 +42,7 @@ public class playerPickup : MonoBehaviour
                 }
                 if (objectHold.CompareTag("barrel"))
                 {
-                    objectHold.transform.position = testBarrelPos.transform.position;
+                    objectHold.transform.position = rightHand.transform.position; // /// // /// // // // /// // // /// // // // // testBarrelPos
                     objectHold.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
                     /*objectHold.transform.forward = gameObject.transform.right;*/
                 }
@@ -49,8 +52,24 @@ public class playerPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("itemPickup") && objectHold == null)
+        if (objectHold == null && (other.gameObject.CompareTag("itemPickup") || other.gameObject.CompareTag("barrel")))
         {
+            /*if (other.gameObject.CompareTag("itemPickup"))
+            {
+                objectHold = other.gameObject;
+                other.gameObject.layer = 6;
+                holdingObject = true;
+            }*/
+            if (other.gameObject.GetComponent<barrel>() != null)
+            {
+                //objectHold = other.gameObject;
+                //other.gameObject.layer = 6;
+                //holdingObject = true;
+                GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
+                animator.SetBool("test holdBarrel", true);
+            }
+
+
             if ( other.gameObject.GetComponent<Molotovbehaviour>() != null)
             {
                 other.gameObject.GetComponent<Molotovbehaviour>().canBreak = true;
@@ -62,7 +81,7 @@ public class playerPickup : MonoBehaviour
            
           /*other.gameObject.transform.position = rightHand.transform.position;*/
           objectHold = other.gameObject;
-            //other.gameObject.layer = 6;
+            other.gameObject.layer = 6;
             holdingObject = true;
         } 
     }
@@ -87,12 +106,18 @@ public class playerPickup : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         holdingObject = false;
-        objectHold.GetComponent<Rigidbody>().AddForce(new Vector3(0f, 250f, 0f) + transform.right * 300f/* + new Vector3(540f, 0f, 0f)*/);
+        objectHold.GetComponent<Rigidbody>().AddForce(new Vector3(0f, 300f, 0f) + transform.right * 500f/* + new Vector3(540f, 0f, 0f)*/);
         yield return new WaitForSeconds(0.2f);
         objectHold.layer = 0;
         if (objectHold.GetComponent<cannonBall>() != null)
         {
             objectHold.GetComponent<cannonBall>().cannonBallExplode = StartCoroutine(objectHold.GetComponent<cannonBall>().BallExplode());
+        }
+        if (objectHold.GetComponent<barrel>() != null)
+        {
+            objectHold.GetComponent<barrel>().isThrown = true;
+            GetComponent<playerMovement>().animator.SetBool("test moveBarrel trigger", false);
+            animator.SetBool("test holdBarrel", false);
         }
         objectHold = null;
         StopCoroutine(ThrowRoutine());
