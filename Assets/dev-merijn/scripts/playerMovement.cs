@@ -73,23 +73,54 @@ public class playerMovement : MonoBehaviour
     {
         if (isMoving == true)
         {
-            
             playerRb.velocity = testMove * speed + Physics.gravity * 0.3f;
-
         }
+        /*        if (testMove != Vector3.zero)
+                {
+                    //Debug.Log(playerRb.velocity);
+                    transform.right = testMove*//* + new Vector3(0f, 0f, 90f)*//*;
+                    animator.SetBool("test move trigger", true);
+
+                }
+                //else
+                if(testMove == Vector3.zero)
+                {
+                    animator.SetBool("test move trigger", false);
+
+                }*/
+
         if (testMove != Vector3.zero)
         {
-            //Debug.Log(playerRb.velocity);
-            transform.right = testMove/* + new Vector3(0f, 0f, 90f)*/;
-            animator.SetBool("test move trigger", true);
-          
+            transform.right = testMove;
+            if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+            {
+                animator.SetBool("test moveBarrel trigger", true);
+            } //else
+            if (GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
+            {
+                //Debug.Log(playerRb.velocity);
+                transform.right = testMove/* + new Vector3(0f, 0f, 90f)*/;
+                animator.SetBool("test move trigger", true);
+            }
+
         }
-        //else
-        if(testMove == Vector3.zero)
-        {
-            animator.SetBool("test move trigger", false);
-            
-        }
+
+        if (testMove == Vector3.zero)
+            //else
+            if (testMove == Vector3.zero)
+            {
+                //animator.SetBool("test move trigger", false);
+                if (GetComponent<playerPickup>().objectHold != null && GetComponent<playerPickup>().objectHold.CompareTag("barrel"))
+                {
+                    animator.SetBool("test moveBarrel trigger", false);
+                }
+                if (GetComponent<playerPickup>().objectHold == null || (GetComponent<playerPickup>().objectHold != null && !GetComponent<playerPickup>().objectHold.CompareTag("barrel")))
+                {
+                    animator.SetBool("test move trigger", false);
+                }
+                animator.SetBool("test move trigger", false);
+
+            }
     }
     private void OnTriggerEnter(Collider other)
     {

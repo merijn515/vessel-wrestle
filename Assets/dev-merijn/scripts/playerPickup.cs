@@ -31,9 +31,18 @@ public class playerPickup : MonoBehaviour
         {
             if (holdingObject == true)
             {
-            objectHold.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            objectHold.transform.position = rightHand.transform.position;
-            objectHold.transform.rotation = rightHand.transform.rotation * Quaternion.Euler(0f, 0f, 90f);
+                objectHold.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                if (objectHold.CompareTag("itemPickup"))
+                {
+                    objectHold.transform.position = rightHand.transform.position;
+                    objectHold.transform.rotation = rightHand.transform.rotation * Quaternion.Euler(0f, 0f, 90f);
+                }
+                if (objectHold.CompareTag("barrel"))
+                {
+                    objectHold.transform.position = testBarrelPos.transform.position;
+                    objectHold.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
+                    /*objectHold.transform.forward = gameObject.transform.right;*/
+                }
             }
         }
     }
@@ -62,7 +71,14 @@ public class playerPickup : MonoBehaviour
     {
         if (context.performed && objectHold != null)
         {
-            animator.SetTrigger("test trigger");
+            if (objectHold.CompareTag("itemPickup"))
+            {
+                animator.SetTrigger("test trigger");
+            }
+            if (objectHold.CompareTag("barrel"))
+            {
+                animator.SetTrigger("test barrelThrow");
+            }
             throwRoutine = StartCoroutine(ThrowRoutine());
         }
     }
