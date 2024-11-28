@@ -20,7 +20,7 @@ public class playerMovement : MonoBehaviour
     private bool isSlowed;
 
     [SerializeField]
-    private Animator animator;
+    public Animator animator;
 
     [SerializeField]
     private SkinnedMeshRenderer meshRenderer;

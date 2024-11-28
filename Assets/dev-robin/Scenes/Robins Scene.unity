@@ -907,6 +907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MultiplayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 8613469673201288111, guid: 1d12e9423c32f464ab6159299533b8e7, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8886594052644965564, guid: 1d12e9423c32f464ab6159299533b8e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -94.12249
