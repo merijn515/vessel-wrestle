@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public float playerHealth;
+    public int playerHealth;
     private Rigidbody rb;
+
+    [SerializeField]
+    private List<GameObject> hitPoints;
 
     public bool joined = false;
     // Start is called before the first frame update
@@ -29,7 +32,20 @@ public class HealthController : MonoBehaviour
             RagdollActive();
         }
 
-      
+
+        for (int i = 0; i < playerHealth; i++)
+        {
+            if (playerHealth < 10)
+            {
+                //hitPoints[playerHealth].SetActive(true);
+                hitPoints[-1 + playerHealth].SetActive(false);
+            }
+            else
+            {
+                hitPoints[i].SetActive(true);
+            }
+        }
+
     }
 
     private void RagdollPartsDisabled()
