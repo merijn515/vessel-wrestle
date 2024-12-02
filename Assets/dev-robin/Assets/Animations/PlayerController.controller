@@ -523,14 +523,14 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: JumpDir
-    m_Type: 1
+  - m_Name: IsJumping
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: IsJumping
-    m_Type: 4
+  - m_Name: JumpDir
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -582,26 +582,26 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -426789926386160503, guid: 1fdf5adb55195cd4283ef260d50bd1bd, type: 3}
-    m_Threshold: 0
+    m_Motion: {fileID: -5353576004315774064, guid: 1fdf5adb55195cd4283ef260d50bd1bd, type: 3}
+    m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: JumpDir
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -5353576004315774064, guid: 1fdf5adb55195cd4283ef260d50bd1bd, type: 3}
+    m_Motion: {fileID: -426789926386160503, guid: 1fdf5adb55195cd4283ef260d50bd1bd, type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.01
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: JumpDir
     m_Mirror: 0
   m_BlendParameter: JumpDir
   m_BlendParameterY: Blend
-  m_MinThreshold: 0
+  m_MinThreshold: -1
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1102 &4798922256774223688
@@ -779,7 +779,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.75
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 1
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &8669994032104072451
