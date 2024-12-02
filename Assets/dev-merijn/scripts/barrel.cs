@@ -17,13 +17,24 @@ public class barrel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            Debug.DrawRay(gameObject.transform.position, Vector3.down * 2, Color.magenta);
         
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "ground" && isThrown == true)
+        if (collision.gameObject.CompareTag("Ground") && isThrown == true)
         {
-            Instantiate(oil, new Vector3(gameObject.transform.position.x, collision.transform.position.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
+
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(gameObject.transform.position, Vector3.down, out hit, 3))
+            {
+                Debug.Log(hit.collider.name);
+                Debug.Log(hit.point);
+            Destroy(Instantiate(oil, hit.point, Quaternion.identity), 15f);
+            }
+            //Destroy(Instantiate(oil, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity), 15f);
         }
     }
 }

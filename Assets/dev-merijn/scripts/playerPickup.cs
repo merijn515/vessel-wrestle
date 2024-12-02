@@ -42,7 +42,7 @@ public class playerPickup : MonoBehaviour
                 }
                 if (objectHold.CompareTag("barrel"))
                 {
-                    objectHold.transform.position = rightHand.transform.position; // /// // /// // // // /// // // /// // // // // testBarrelPos
+                    objectHold.transform.position = testBarrelPos.transform.position; // /// // /// // // // /// // // /// // // // // testBarrelPos
                     objectHold.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
                     /*objectHold.transform.forward = gameObject.transform.right;*/
                 }
