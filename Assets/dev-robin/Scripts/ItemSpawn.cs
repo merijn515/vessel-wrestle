@@ -11,7 +11,7 @@ public class ItemSpawn : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnItems());
-        Instantiate(itemList[Random.Range(0, itemList.Count)],middleTrans);
+        Instantiate(itemList[Random.Range(0, itemList.Count)],middleTrans.position,Quaternion.identity);
     }
 
     // Update is called once per frame
