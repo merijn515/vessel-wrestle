@@ -305,7 +305,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 19b052b9-6667-4b22-82ed-3de396df2367
     m_ActionName: Controller/GroundPound[/XInputControllerWindows/buttonEast]
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Keyboard
   m_SplitScreenIndex: -1
