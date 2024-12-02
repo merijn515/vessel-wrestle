@@ -23,9 +23,9 @@ public class MultiplayerController : MonoBehaviour
             {
                 Debug.Log("Marine Team win");
 
-           // } else if(GameObject.FindGameObjectsWithTag("Marine team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0) 
-           // {
-               // Debug.Log("Pirate team win");
+            } else if(GameObject.FindGameObjectsWithTag("Marine team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0) 
+            {
+                Debug.Log("Pirate team win");
             }
         } 
     }

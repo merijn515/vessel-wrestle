@@ -178,15 +178,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 81826774328257221, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.120792
+      value: -84.3
       objectReference: {fileID: 0}
     - target: {fileID: 81826774328257221, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.511818
+      value: 89.9
       objectReference: {fileID: 0}
     - target: {fileID: 81826774328257221, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 726.7687
+      value: 160.5
       objectReference: {fileID: 0}
     - target: {fileID: 81826774328257221, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -975,6 +975,10 @@ PrefabInstance:
     - target: {fileID: 4430457061053768605, guid: 1d12e9423c32f464ab6159299533b8e7, type: 3}
       propertyPath: m_Name
       value: MultiplayerController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430457061053768605, guid: 1d12e9423c32f464ab6159299533b8e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8613469673201288111, guid: 1d12e9423c32f464ab6159299533b8e7, type: 3}
       propertyPath: m_NotificationBehavior
