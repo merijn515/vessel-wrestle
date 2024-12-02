@@ -97,7 +97,7 @@ Material:
     - _EnvironmentReflections: 1
     - _FoamAmount: 5
     - _FoamCutoff: 1
-    - _FoamScale: 100
+    - _FoamScale: 200
     - _FoamSpeed: 1.2
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -123,10 +123,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DeepWater: {r: 0.32627267, g: 0.6981424, b: 0.735849, a: 0.19607843}
+    - _DeepWater: {r: 0.3262726, g: 0.6981424, b: 0.735849, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Shallowwater: {r: 0.6245283, g: 1, b: 0.9830868, a: 0.09803922}
+    - _Shallowwater: {r: 0.6245283, g: 1, b: 0.98308676, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &9113115127060000068
