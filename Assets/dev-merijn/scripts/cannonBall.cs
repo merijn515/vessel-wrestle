@@ -43,7 +43,7 @@ public class cannonBall : MonoBehaviour
 
             if (hit.gameObject.layer == 12)
             {
-                hit.gameObject.transform.GetChild(0).gameObject.GetComponent<HealthController>().playerHealth -= 5;
+                hit.gameObject.transform.GetChild(0).gameObject.GetComponent<HealthController>().playerHealth -= 1;
             }
         }
 
