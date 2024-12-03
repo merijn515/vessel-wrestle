@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
@@ -8,7 +9,11 @@ public class HealthController : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField]
-    private List<GameObject> hitPoints;
+    private List<GameObject> hitPointsSprites;
+    [SerializeField]
+    private Sprite emptyHeartSprite;
+    [SerializeField]
+    private Sprite fullHeartSprite;
 
     public bool joined = false;
     // Start is called before the first frame update
@@ -33,16 +38,45 @@ public class HealthController : MonoBehaviour
         }
 
 
-        for (int i = 0; i < playerHealth; i++)
+        for (int i = -1; i < playerHealth; i++)
         {
-            if (playerHealth < 10)
+            if (playerHealth < 10 && playerHealth > 0)
             {
-                //hitPoints[playerHealth].SetActive(true);
-                hitPoints[-1 + playerHealth].SetActive(false);
+                /*hitPointsSprites[i + 1].SetActive(true);
+                hitPointsSprites[0 + playerHealth].SetActive(false);*/
+
+                hitPointsSprites[i + 1].GetComponent<Image>().sprite = fullHeartSprite;
+                hitPointsSprites[0 + playerHealth].GetComponent<Image>().sprite = emptyHeartSprite;
+
+
+                //hitPoints[0].SetActive(false);
+                //Debug.Log(0 + playerHealth);
+                Debug.Log(i + 1);
             }
-            else
+            else if(playerHealth <= 0)
             {
-                hitPoints[i].SetActive(true);
+                //hitPointsSprites[i + 1].SetActive(false);
+
+                hitPointsSprites[i + 1].GetComponent<Image>().sprite = emptyHeartSprite;
+
+
+                //Debug.Log("0 health meer over: " + 0 + playerHealth);
+                Debug.Log(i + 1);
+            } else if (playerHealth == 10)
+            {
+                Debug.Log(i + 1);
+                //Debug.Log(0 + playerHealth + ": 10 health meer over:");
+                if (i < 0)
+                {
+                    //hitPointsSprites[i + 1].SetActive(true);
+
+                    hitPointsSprites[i + 1].GetComponent<Image>().sprite = fullHeartSprite;
+                } else
+                {
+                    //hitPointsSprites[i].SetActive(true);
+
+                    hitPointsSprites[i].GetComponent<Image>().sprite = fullHeartSprite;
+                }
             }
         }
 
