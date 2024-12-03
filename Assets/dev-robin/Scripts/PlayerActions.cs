@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -31,7 +30,8 @@ public class PlayerActions : MonoBehaviour
 
     [SerializeField] float jumpForce;
 
-    [SerializeField] int punchImpact;    
+    [SerializeField] int punchImpact;
+   
    
     void Awake()
     {
@@ -47,6 +47,7 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
         animator.SetBool("IsJumping", !isOnGround);
+        animator.SetFloat("JumpDir", Mathf.Clamp(rb.velocity.y,-1,1));
         AnimationMovementCheck();
         
     }
@@ -73,7 +74,7 @@ public class PlayerActions : MonoBehaviour
 
                 playerMovement.isMoving = false;
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
-
+               
 
             }
         

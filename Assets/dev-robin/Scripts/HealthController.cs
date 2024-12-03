@@ -33,7 +33,7 @@ public class HealthController : MonoBehaviour
         }
 
 
-        for (int i = 0; i < playerHealth; i++)
+     /*   for (int i = 0; i < playerHealth; i++)
         {
             if (playerHealth < 10)
             {
@@ -43,8 +43,8 @@ public class HealthController : MonoBehaviour
             else
             {
                 hitPoints[i].SetActive(true);
-            }
-        }
+            }*/
+        
 
     }
 

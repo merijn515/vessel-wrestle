@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2105823103196380286}
   - component: {fileID: 1261056720855524889}
   - component: {fileID: 6255088845370813378}
+  - component: {fileID: 6898686323523021377}
+  - component: {fileID: 3081232701794441184}
   m_Layer: 6
   m_Name: PirateSword
-  m_TagString: Untagged
+  m_TagString: itemPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +77,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordRadius: 2
   swordImpact: 5
+  animator: {fileID: 0}
+  canUse: 0
+--- !u!65 &6898686323523021377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515055203134906286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2303085, z: 1}
+  m_Center: {x: 0, y: -0.11515427, z: 0}
+--- !u!136 &3081232701794441184
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515055203134906286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8098602
+  m_Height: 5.2256165
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09812927, z: 0.30986023}
 --- !u!1001 &832762737474938566
 PrefabInstance:
   m_ObjectHideFlags: 0
