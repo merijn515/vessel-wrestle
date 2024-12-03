@@ -97,7 +97,7 @@ Material:
     - _EnvironmentReflections: 1
     - _FoamAmount: 5
     - _FoamCutoff: 1
-    - _FoamScale: 200
+    - _FoamScale: 1000
     - _FoamSpeed: 1.2
     - _GlossMapScale: 0
     - _Glossiness: 0
