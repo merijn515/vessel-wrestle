@@ -42,6 +42,7 @@ public class Molotovbehaviour : MonoBehaviour
         {
             if (isActive)
             {
+                gameObject.tag = "Untagged";
                 var fireRot = new Quaternion(fire.transform.rotation.x, fire.transform.rotation.y, fire.transform.rotation.z, fire.transform.rotation.w);
                 var clone = Instantiate(fire,gameObject.transform.position,fireRot);
                 clone.transform.parent = gameObject.transform;
