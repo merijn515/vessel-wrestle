@@ -11,7 +11,7 @@ public class MultiplayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -19,15 +19,25 @@ public class MultiplayerController : MonoBehaviour
     {
         for(int i =0; i < GameObject.FindGameObjectsWithTag("Pirate team").Length; i++)
         {
-           if( GameObject.FindGameObjectsWithTag("Pirate team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0)
+            if (GameObject.FindGameObjectsWithTag("Pirate team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0)
             {
                 Debug.Log("Marine Team win");
-
-            } else if(GameObject.FindGameObjectsWithTag("Marine team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0) 
-            {
-                Debug.Log("Pirate team win");
             }
-        } 
+          //  } else if(GameObject.FindGameObjectsWithTag("Marine team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0) 
+          //  {
+               
+                Debug.Log("Pirate team win");
+           // }
+        }
+
+        if (GameObject.FindGameObjectWithTag("Marine team").gameObject == null)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void OnPlayerJoin()
