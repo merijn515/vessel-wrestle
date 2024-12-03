@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,27 +9,30 @@ public class MultiplayerController : MonoBehaviour
     [SerializeField] Transform spawnPointPirate;
     [SerializeField] Transform spawnPointMarine;
 
+    [SerializeField] GameObject player2Text;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
-    {
-        for(int i =0; i < GameObject.FindGameObjectsWithTag("Pirate team").Length; i++)
-        {
-           if( GameObject.FindGameObjectsWithTag("Pirate team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0)
-            {
-                Debug.Log("Marine Team win");
+    { 
 
-            } else if(GameObject.FindGameObjectsWithTag("Marine team")[i].GetComponentInChildren<HealthController>().playerHealth <= 0)
-            {
-                Debug.Log("Pirate team win");
-            }
-        } 
+        if (GameObject.FindGameObjectWithTag("Marine team") == null)
+        {
+            Time.timeScale = 0;
+            player2Text.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            player2Text.SetActive(false);
+        }
     }
+        
+    
 
     public void OnPlayerJoin()
     {

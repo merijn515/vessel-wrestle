@@ -9,7 +9,7 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     [SerializeField] int swordImpact;
 
     private PlayerActions playerActions;
-    private Animator animator;
+    public Animator animator;
     public bool canUse = false;
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,13 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canUse)
-        {
-            KnockBackBehaviour();
-        }
+        
+        
+            if (animator !=null&&animator.GetBool("Punch"))
+            {
+                KnockBackBehaviour();
+            }
+        
     }
 
     public void KnockBackBehaviour()
@@ -37,7 +40,7 @@ public class KnockbackSwordBehaviour : MonoBehaviour
                 var rigid = collider.GetComponent<Rigidbody>();
 
                 rigid.AddForce(collider.gameObject.transform.position * swordImpact);
-                //Destroy(gameObject);
+                Destroy(gameObject);
             }
         }
 

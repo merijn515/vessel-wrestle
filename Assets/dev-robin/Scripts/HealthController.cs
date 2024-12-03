@@ -35,6 +35,17 @@ public class HealthController : MonoBehaviour
         {
             //ragdoll still needs to be made
             RagdollActive();
+
+            if (GameObject.FindGameObjectWithTag("Pirate team").GetComponentInChildren<HealthController>().playerHealth <= 0 )
+            {
+                Debug.Log("Marine Team win");
+            }
+            else if (GameObject.FindGameObjectWithTag("Marine team").GetComponentInChildren<HealthController>().playerHealth <= 0 )
+            {
+
+                Debug.Log("Pirate team win");
+            }
+
         }
 
 
@@ -85,6 +96,8 @@ public class HealthController : MonoBehaviour
     private void RagdollActive()
     {
         gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.GetComponentInParent<playerMovement>().enabled = false;
+        gameObject.GetComponentInParent<PlayerActions>().enabled = false;
         Collider[] colliders = GetComponentsInChildren<Collider>();
         Rigidbody[] rigids = GetComponentsInChildren<Rigidbody>();
 

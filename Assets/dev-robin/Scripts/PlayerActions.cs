@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -16,7 +15,6 @@ public class PlayerActions : MonoBehaviour
 
     private Animator animator;
 
-    private playerPickup playerPickup;
     private playerMovement playerMovement;
 
     // variables
@@ -31,14 +29,14 @@ public class PlayerActions : MonoBehaviour
 
     [SerializeField] float jumpForce;
 
-    [SerializeField] int punchImpact;    
+    [SerializeField] int punchImpact;
+   
    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
 
-        playerPickup = GetComponent<playerPickup>();
         playerMovement = GetComponent<playerMovement>();
        
     }
@@ -47,6 +45,7 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
         animator.SetBool("IsJumping", !isOnGround);
+        animator.SetFloat("JumpDir", Mathf.Clamp(rb.velocity.y,-1,1));
         AnimationMovementCheck();
         
     }
@@ -73,7 +72,7 @@ public class PlayerActions : MonoBehaviour
 
                 playerMovement.isMoving = false;
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
-
+               
 
             }
         
@@ -125,7 +124,7 @@ public class PlayerActions : MonoBehaviour
         yield return wait;
 
         // if its holding the sword it will do that amount of damage
-        if (!playerPickup.holdingObject)
+        if (!gameObject.GetComponent<playerPickup>().holdingObject)
         {
             Collider[] punchCollider = Physics.OverlapSphere(punchArm.transform.position, punchRadius, hitLayer);
 
