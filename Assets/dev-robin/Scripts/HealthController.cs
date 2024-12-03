@@ -16,7 +16,7 @@ public class HealthController : MonoBehaviour
     [SerializeField]
     private Sprite fullHeartSprite;
 
-    [SerializeField] TextMeshProUGUI gameOverText;
+   private MultiplayerController multiplayerController;
 
     public bool joined = false;
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class HealthController : MonoBehaviour
     {
         RagdollPartsDisabled();
         rb = GetComponent<Rigidbody>();
+        multiplayerController = FindAnyObjectByType<MultiplayerController>();
     }
 
     // Update is called once per frame
@@ -36,17 +37,19 @@ public class HealthController : MonoBehaviour
     {
         if(playerHealth <= 0)
         {
+            multiplayerController.gameOverText.SetActive(true);
             //ragdoll still needs to be made
             RagdollActive();
 
             if (GameObject.FindGameObjectWithTag("Pirate team").GetComponentInChildren<HealthController>().playerHealth <= 0 )
             {
-                Debug.Log("Marine Team win");
+                
+               multiplayerController.gameOverText.GetComponentInChildren<TextMeshProUGUI>().text = "Marine team wins";
             }
             else if (GameObject.FindGameObjectWithTag("Marine team").GetComponentInChildren<HealthController>().playerHealth <= 0 )
             {
 
-                Debug.Log("Pirate team win");
+              multiplayerController.gameOverText.GetComponentInChildren<TextMeshProUGUI>().text = "Pirate team win";
             }
 
         }
