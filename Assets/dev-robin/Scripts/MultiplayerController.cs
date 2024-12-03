@@ -30,14 +30,14 @@ public class MultiplayerController : MonoBehaviour
            // }
         }
 
-        if (GameObject.FindGameObjectWithTag("Marine team").gameObject == null)
+       /* if (GameObject.FindGameObjectWithTag("Marine team").gameObject == null)
         {
             Time.timeScale = 0;
         }
         else
         {
             Time.timeScale = 1;
-        }
+        }*/
     }
 
     public void OnPlayerJoin()
