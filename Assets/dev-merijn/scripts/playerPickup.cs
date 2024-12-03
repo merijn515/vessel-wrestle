@@ -109,7 +109,7 @@ public class playerPickup : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         holdingObject = false;
-        objectHold.GetComponent<Rigidbody>().AddForce(new Vector3(0f, 300f, 0f) + transform.right * 500f/* + new Vector3(540f, 0f, 0f)*/);
+        objectHold.GetComponent<Rigidbody>().AddForce(new Vector3(0f, 300f, 0f) + transform.right * 800f/* + new Vector3(540f, 0f, 0f)*/);
         yield return new WaitForSeconds(0.2f);
         objectHold.layer = 0;
         if (objectHold.GetComponent<cannonBall>() != null)
