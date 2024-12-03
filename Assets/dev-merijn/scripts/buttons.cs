@@ -25,6 +25,10 @@ public class buttons : MonoBehaviour
         SceneManager.LoadScene(2);
         
     }
+    public void Rematch()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void ToMainMenu()
     {
         SceneManager.LoadScene(0);
