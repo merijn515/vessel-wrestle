@@ -2760,57 +2760,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 722465010}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 678536276}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 453892214}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 774540948}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 1797069844}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 1384921187}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 1511911910}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[7]
-      value: 
-      objectReference: {fileID: 295345422}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[8]
-      value: 
-      objectReference: {fileID: 1436386976}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: hitPoints.Array.data[9]
-      value: 
-      objectReference: {fileID: 621130653}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
