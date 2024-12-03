@@ -537,12 +537,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   punchArm: {fileID: 5307367076255638609}
-  groundPoundForce: 23
+  groundPoundForce: 4
   groundPoundRadius: 12
   punchRadius: 5
   jumpAmount: 2
   jumpForce: 400
-  punchImpact: 16
+  punchImpact: 2
 --- !u!65 &8881365061606063582
 BoxCollider:
   m_ObjectHideFlags: 0

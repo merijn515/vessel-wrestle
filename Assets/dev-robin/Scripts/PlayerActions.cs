@@ -15,7 +15,6 @@ public class PlayerActions : MonoBehaviour
 
     private Animator animator;
 
-    private playerPickup playerPickup;
     private playerMovement playerMovement;
 
     // variables
@@ -38,7 +37,6 @@ public class PlayerActions : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
 
-        playerPickup = GetComponent<playerPickup>();
         playerMovement = GetComponent<playerMovement>();
        
     }
@@ -126,7 +124,7 @@ public class PlayerActions : MonoBehaviour
         yield return wait;
 
         // if its holding the sword it will do that amount of damage
-        if (!playerPickup.holdingObject)
+        if (!gameObject.GetComponent<playerPickup>().holdingObject)
         {
             Collider[] punchCollider = Physics.OverlapSphere(punchArm.transform.position, punchRadius, hitLayer);
 
