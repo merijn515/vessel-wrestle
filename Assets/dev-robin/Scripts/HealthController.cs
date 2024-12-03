@@ -42,24 +42,13 @@ public class HealthController : MonoBehaviour
         {
             if (playerHealth < 10 && playerHealth > 0)
             {
-                /*hitPointsSprites[i + 1].SetActive(true);
-                hitPointsSprites[0 + playerHealth].SetActive(false);*/
-
                 hitPointsSprites[i + 1].GetComponent<Image>().sprite = fullHeartSprite;
                 hitPointsSprites[0 + playerHealth].GetComponent<Image>().sprite = emptyHeartSprite;
-
-
-                //hitPoints[0].SetActive(false);
-                //Debug.Log(0 + playerHealth);
                 Debug.Log(i + 1);
             }
             else if(playerHealth <= 0)
             {
-                //hitPointsSprites[i + 1].SetActive(false);
-
                 hitPointsSprites[i + 1].GetComponent<Image>().sprite = emptyHeartSprite;
-
-
                 //Debug.Log("0 health meer over: " + 0 + playerHealth);
                 Debug.Log(i + 1);
             } else if (playerHealth == 10)
@@ -68,13 +57,9 @@ public class HealthController : MonoBehaviour
                 //Debug.Log(0 + playerHealth + ": 10 health meer over:");
                 if (i < 0)
                 {
-                    //hitPointsSprites[i + 1].SetActive(true);
-
                     hitPointsSprites[i + 1].GetComponent<Image>().sprite = fullHeartSprite;
                 } else
                 {
-                    //hitPointsSprites[i].SetActive(true);
-
                     hitPointsSprites[i].GetComponent<Image>().sprite = fullHeartSprite;
                 }
             }
