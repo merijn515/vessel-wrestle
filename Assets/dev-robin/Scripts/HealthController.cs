@@ -57,20 +57,48 @@ public class HealthController : MonoBehaviour
 
         for (int i = -1; i < playerHealth; i++)
         {
-            if (playerHealth < 10 && playerHealth > 0)
+            if (playerHealth < 10 && playerHealth >= 0)
             {
-                hitPointsSprites[i + 1].GetComponent<Image>().sprite = fullHeartSprite;
-                hitPointsSprites[0 + playerHealth].GetComponent<Image>().sprite = emptyHeartSprite;
-                Debug.Log(i + 1);
+                #region uiPoging
+                /*                int testInt = 10 - playerHealth;
+                                if (playerHealth + i > playerHealth && playerHealth + i <= 10)
+                                {
+                                    Debug.Log(gameObject.name + ": ||hp: " + playerHealth + " ||i: " + i + " ||hp + i: " + (playerHealth + i));
+                                }
+
+                                if (playerHealth + )
+                                {
+                                    Debug.Log(gameObject.name + ": ||hp: " + playerHealth + " ||i: " + i + " ||hp + i: " + (playerHealth + i));
+                                }*/
+                #endregion
+                for (int j = 0; j < 10; j++)
+                {
+                    int testNum = 0 + j;
+                    if (playerHealth + testNum > playerHealth && playerHealth + testNum <= 9)
+                    {
+                        Debug.Log(gameObject.name + ": ||hp: " + playerHealth + " ||testNum: " + testNum + " ||hp + testNum: " + (playerHealth + testNum));
+                        hitPointsSprites[-1 + playerHealth + testNum].GetComponent<Image>().sprite = emptyHeartSprite;
+                    }
+                }
+                //hitPointsSprites[playerHealth].GetComponent<Image>().sprite = emptyHeartSprite;
+                hitPointsSprites[9].GetComponent<Image>().sprite = emptyHeartSprite;
+
+                if (i != -1)
+                {
+                hitPointsSprites[i].GetComponent<Image>().sprite = fullHeartSprite;
+                }
+
+
+                //Debug.Log(i + 1);
             }
-            else if(playerHealth <= 0)
+            /*else if(playerHealth <= 0)
             {
                 hitPointsSprites[i + 1].GetComponent<Image>().sprite = emptyHeartSprite;
                 //Debug.Log("0 health meer over: " + 0 + playerHealth);
-                Debug.Log(i + 1);
-            } else if (playerHealth == 10)
+                //Debug.Log(i + 1);
+            } else */if (playerHealth == 10)
             {
-                Debug.Log(i + 1);
+                //Debug.Log(i + 1);
                 //Debug.Log(0 + playerHealth + ": 10 health meer over:");
                 if (i < 0)
                 {
