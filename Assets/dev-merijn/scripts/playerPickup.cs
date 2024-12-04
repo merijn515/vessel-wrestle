@@ -42,6 +42,7 @@ public class playerPickup : MonoBehaviour
                 }
                 if (objectHold.CompareTag("barrel"))
                 {
+                    
                     objectHold.transform.position = testBarrelPos.transform.position; // /// // /// // // // /// // // /// // // // // testBarrelPos
                     objectHold.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(90f, 0f, 0);
                     /*objectHold.transform.forward = gameObject.transform.right;*/
@@ -65,6 +66,7 @@ public class playerPickup : MonoBehaviour
                 //objectHold = other.gameObject;
                 //other.gameObject.layer = 6;
                 //holdingObject = true;
+                
                 GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
                 animator.SetBool("test holdBarrel", true);
             }

@@ -206,14 +206,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: gameOverText
-      value: 
-      objectReference: {fileID: 1498431619}
-    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
-      propertyPath: groundPoundForce
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -881,17 +873,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1498431619 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2724906564559160931, guid: 30050b58eccbea54aa7c71a5e183416b, type: 3}
-  m_PrefabInstance: {fileID: 3763939997486444506}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1737486928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 288676945188251000, guid: 30050b58eccbea54aa7c71a5e183416b, type: 3}
