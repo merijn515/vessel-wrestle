@@ -541,7 +541,7 @@ MonoBehaviour:
   groundPoundRadius: 12
   punchRadius: 5
   jumpAmount: 2
-  jumpForce: 400
+  jumpForce: 600
   punchImpact: 20
 --- !u!65 &8881365061606063582
 BoxCollider:
