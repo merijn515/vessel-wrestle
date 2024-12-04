@@ -928,8 +928,9 @@ MonoBehaviour:
   - {fileID: 2515055203134906286, guid: b6b6aa9eda592c14dbc5f2031d64b0a1, type: 3}
   - {fileID: 7617743994290356362, guid: f03685ef3542a0a46a0610fbefb19b11, type: 3}
   - {fileID: 8623346012718294526, guid: 93fd14b7d1757104eb2d9ee6260c8963, type: 3}
-  - {fileID: 7647040064261594340, guid: a1b070c5f435af448a7c383577bfeff9, type: 3}
+  healthList:
   - {fileID: 453741191720958418, guid: 26a9b6a45a29c0d4fabd2e590d73a57c, type: 3}
+  - {fileID: 7647040064261594340, guid: a1b070c5f435af448a7c383577bfeff9, type: 3}
   spawnList:
   - {fileID: 1921179415}
   - {fileID: 1531426143}
@@ -938,6 +939,8 @@ MonoBehaviour:
   - {fileID: 38102318}
   - {fileID: 1669544458}
   middleTrans: {fileID: 2133401475}
+  timeForItem: 10
+  timeForHealthPickup: 20
 --- !u!4 &714223297
 Transform:
   m_ObjectHideFlags: 0
