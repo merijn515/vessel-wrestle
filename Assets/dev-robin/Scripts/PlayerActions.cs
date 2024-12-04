@@ -96,7 +96,7 @@ public class PlayerActions : MonoBehaviour
 
         yield return wait;
         rb.useGravity = true;
-        rb.AddForce(0,-40,0,ForceMode.Impulse);
+        rb.AddForce(0,-60,0,ForceMode.Impulse);
     
         yield return new WaitForSeconds(.25f);
         // play ground pound vfx

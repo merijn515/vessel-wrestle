@@ -926,7 +926,6 @@ MonoBehaviour:
   - {fileID: 766957776131779042, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
   - {fileID: 2515055203134906286, guid: b6b6aa9eda592c14dbc5f2031d64b0a1, type: 3}
   - {fileID: 2515055203134906286, guid: b6b6aa9eda592c14dbc5f2031d64b0a1, type: 3}
-  - {fileID: 7617743994290356362, guid: f03685ef3542a0a46a0610fbefb19b11, type: 3}
   - {fileID: 8623346012718294526, guid: 93fd14b7d1757104eb2d9ee6260c8963, type: 3}
   healthList:
   - {fileID: 453741191720958418, guid: 26a9b6a45a29c0d4fabd2e590d73a57c, type: 3}
