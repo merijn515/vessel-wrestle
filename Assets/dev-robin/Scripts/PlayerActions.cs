@@ -17,6 +17,9 @@ public class PlayerActions : MonoBehaviour
 
     private playerMovement playerMovement;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip punchHitClip;
+
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
@@ -137,7 +140,7 @@ public class PlayerActions : MonoBehaviour
                     var rigid = collider.GetComponent<Rigidbody>();
 
                     rigid.AddForce(collider.gameObject.transform.position * punchImpact,ForceMode.Impulse);
-                    
+                    audioSource.PlayOneShot(punchHitClip, .5f);
                 }
             }
         }

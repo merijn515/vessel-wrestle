@@ -537,6 +537,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   punchArm: {fileID: 5307367076255638609}
+  audioSource: {fileID: 0}
+  punchHitClip: {fileID: 8300000, guid: 810f9761d20ac8141b630cec76c05670, type: 3}
   groundPoundForce: 4
   groundPoundRadius: 12
   punchRadius: 5

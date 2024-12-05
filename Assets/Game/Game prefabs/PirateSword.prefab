@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordRadius: 2
-  swordImpact: 5
+  swordImpact: 30
   animator: {fileID: 0}
   canUse: 0
 --- !u!65 &6898686323523021377
