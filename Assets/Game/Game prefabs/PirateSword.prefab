@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordRadius: 15
-  swordImpact: 30
+  swordImpact: 3000
   animator: {fileID: 0}
   canUse: 0
 --- !u!65 &6898686323523021377
@@ -89,7 +89,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

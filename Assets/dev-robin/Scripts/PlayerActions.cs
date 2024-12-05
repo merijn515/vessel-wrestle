@@ -60,7 +60,7 @@ public class PlayerActions : MonoBehaviour
 
     public void Punching(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && isOnGround)
         {
             audioSource.PlayOneShot(punchMissClip, 1);
             animator.SetBool("Punch", true);
@@ -92,7 +92,7 @@ public class PlayerActions : MonoBehaviour
     {
         if(!isOnGround && context.performed)
         {
-            audioSource.PlayOneShot(groundPoundClip, 1);
+            
             //ground pound animations still needs to be added
             animator.SetBool("GroundPound", true);
             StartCoroutine(GroundPoundEnum());
@@ -104,6 +104,7 @@ public class PlayerActions : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(.5f);
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
+        audioSource.PlayOneShot(groundPoundClip, 1);
 
         yield return wait;
         rb.useGravity = true;

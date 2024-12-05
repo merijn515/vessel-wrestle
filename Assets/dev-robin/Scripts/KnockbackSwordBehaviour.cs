@@ -41,6 +41,7 @@ public class KnockbackSwordBehaviour : MonoBehaviour
 
                 rigid.AddForce(collider.gameObject.transform.position * swordImpact);
                 Destroy(gameObject);
+                gameObject.GetComponent<playerPickup>().holdingObject = false;
             }
         }
 

@@ -412,7 +412,7 @@ MonoBehaviour:
   animator: {fileID: 4045062319416661230}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
 --- !u!114 &7888687282514150559
 MonoBehaviour:
   m_ObjectHideFlags: 0
