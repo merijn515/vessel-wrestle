@@ -87,8 +87,8 @@ public class playerPickup : MonoBehaviour
                 //other.gameObject.layer = 6;
                 //holdingObject = true;
 
-                other.gameObject.GetComponent<BoxCollider>().enabled= false;
-                other.gameObject.GetComponent<CapsuleCollider>().excludeLayers = layerMask;
+                other.gameObject.GetComponent<CapsuleCollider>().enabled= false;
+                other.gameObject.GetComponent<BoxCollider>().excludeLayers = layerMask;
                 GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
                 animator.SetBool("test holdBarrel", true);
 

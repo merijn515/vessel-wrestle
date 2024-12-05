@@ -92,7 +92,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -113,14 +113,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.379387
-  m_Height: 6.6811767
+  m_Radius: 4.067471
+  m_Height: 7.68713
   m_Direction: 1
-  m_Center: {x: 0, y: 2.9237595, z: -0.1001358}
+  m_Center: {x: -0.02013588, y: 2.710058, z: 0.295722}
 --- !u!1001 &3092047684723772141
 PrefabInstance:
   m_ObjectHideFlags: 0
