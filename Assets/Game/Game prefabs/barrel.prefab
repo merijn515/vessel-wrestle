@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7547913713504729272}
   - component: {fileID: 8976383945837610027}
   - component: {fileID: 6853472670092325942}
-  - component: {fileID: 7089887778753318373}
   - component: {fileID: 5310063413227089230}
+  - component: {fileID: 7868865075835079500}
   m_Layer: 0
   m_Name: barrel
   m_TagString: barrel
@@ -77,27 +77,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7089887778753318373
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7617743994290356362}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.5883026, y: 5.9964347, z: 4.3316956}
-  m_Center: {x: 0.24654579, y: 2.4982173, z: 0.22384644}
 --- !u!65 &5310063413227089230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,6 +98,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.4878445, y: 5.9910564, z: 5.3459015}
   m_Center: {x: 0.36317348, y: 2.4955282, z: -0.24860382}
+--- !u!136 &7868865075835079500
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617743994290356362}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.379387
+  m_Height: 6.6811767
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.9237595, z: -0.1001358}
 --- !u!1001 &3092047684723772141
 PrefabInstance:
   m_ObjectHideFlags: 0
