@@ -206,10 +206,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: deadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d99abfd18e753d49821e128c9c7c9f0, type: 3}
+    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: auidoSource
+      value: 
+      objectReference: {fileID: 1410320239}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: jumpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 71b85031772c84546b607a6877310d21, type: 3}
     - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1410320239}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: punchMissClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 60ae2f615bb305d43b3af36417234b97, type: 3}
+    - target: {fileID: 3999724965238181695, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: groundPoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 458278d0ae8c2284e897b548b54d0899, type: 3}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
       value: Player

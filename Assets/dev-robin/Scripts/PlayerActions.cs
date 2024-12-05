@@ -18,7 +18,12 @@ public class PlayerActions : MonoBehaviour
     private playerMovement playerMovement;
 
     [SerializeField] AudioSource audioSource;
+
+    [SerializeField] AudioClip punchMissClip;
     [SerializeField] AudioClip punchHitClip;
+
+    [SerializeField] AudioClip groundPoundClip;
+    [SerializeField] AudioClip jumpClip;
 
     // variables
     [SerializeField] int groundPoundForce;
@@ -57,6 +62,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
+            audioSource.PlayOneShot(punchMissClip, 1);
             animator.SetBool("Punch", true);
        
             StartCoroutine(PunchingEnum());
@@ -70,6 +76,7 @@ public class PlayerActions : MonoBehaviour
         
             if (jumpAmount > 0 && context.performed)
             {
+            audioSource.PlayOneShot(jumpClip, 1);
                 jumpAmount--;
                 isOnGround = false;
 
@@ -85,6 +92,7 @@ public class PlayerActions : MonoBehaviour
     {
         if(!isOnGround && context.performed)
         {
+            audioSource.PlayOneShot(groundPoundClip, 1);
             //ground pound animations still needs to be added
             animator.SetBool("GroundPound", true);
             StartCoroutine(GroundPoundEnum());

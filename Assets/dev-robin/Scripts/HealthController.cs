@@ -19,6 +19,9 @@ public class HealthController : MonoBehaviour
    private MultiplayerController multiplayerController;
 
     public bool joined = false;
+
+    [SerializeField] AudioSource auidoSource;
+    [SerializeField] AudioClip deadClip;
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,7 +43,8 @@ public class HealthController : MonoBehaviour
             multiplayerController.gameOverText.SetActive(true);
             //ragdoll still needs to be made
             RagdollActive();
-
+            auidoSource.PlayOneShot(deadClip, 2);
+           
             if (GameObject.FindGameObjectWithTag("Pirate team").GetComponentInChildren<HealthController>().playerHealth <= 0 )
             {
                 
@@ -51,7 +55,8 @@ public class HealthController : MonoBehaviour
 
               multiplayerController.gameOverText.GetComponentInChildren<TextMeshProUGUI>().text = "Pirate team win";
             }
-
+            
+            gameObject.GetComponent<HealthController>().enabled = false;
         }
 
 
