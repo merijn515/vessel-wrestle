@@ -543,7 +543,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 71b85031772c84546b607a6877310d21, type: 3}
   groundPoundForce: 4
   groundPoundRadius: 12
-  punchRadius: 5
+  punchRadius: 10
   jumpAmount: 2
   jumpForce: 600
   punchImpact: 20
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   emptyHeartSprite: {fileID: 21300000, guid: 058132022155ad84882333d59df1affa, type: 3}
   fullHeartSprite: {fileID: 21300000, guid: dc26197f85a97044ab52997323d3f693, type: 3}
   joined: 0
-  deadClip: {fileID: 0}
+  deadClip: {fileID: 8300000, guid: 9d99abfd18e753d49821e128c9c7c9f0, type: 3}
 --- !u!4 &2142235639405168001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 740faf23f92b7604a84fd7c718634f87, type: 3}

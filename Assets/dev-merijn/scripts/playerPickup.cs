@@ -74,6 +74,7 @@ public class playerPickup : MonoBehaviour
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
                 other.gameObject.GetComponent<KnockbackSwordBehaviour>().animator = gameObject.GetComponentInChildren<Animator>();
+                other.gameObject.GetComponent<KnockbackSwordBehaviour>().playerPickup = gameObject.GetComponent<playerPickup>();
                 
             } else if (other.gameObject.GetComponent<cannonBall>() != null)
             {
