@@ -2333,9 +2333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList:
+  - {fileID: 2515055203134906286, guid: b6b6aa9eda592c14dbc5f2031d64b0a1, type: 3}
   - {fileID: 766957776131779042, guid: f4825506fce7b364fb0d44c6ffc44167, type: 3}
-  - {fileID: 2515055203134906286, guid: b6b6aa9eda592c14dbc5f2031d64b0a1, type: 3}
-  - {fileID: 2515055203134906286, guid: b6b6aa9eda592c14dbc5f2031d64b0a1, type: 3}
   - {fileID: 8623346012718294526, guid: 93fd14b7d1757104eb2d9ee6260c8963, type: 3}
   healthList:
   - {fileID: 453741191720958418, guid: 26a9b6a45a29c0d4fabd2e590d73a57c, type: 3}
@@ -6419,6 +6418,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: playerHealth
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: marineWinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f7c244628d03bc43a8ded099e4e63d8, type: 3}
+    - target: {fileID: 2201078568735479253, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
+      propertyPath: pirateWinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 377490901ec649647b5b5131549083f2, type: 3}
     - target: {fileID: 4200159646056780229, guid: 41298c05ade9dfd4ca9b3f442527d6c4, type: 3}
       propertyPath: m_Name
       value: Player

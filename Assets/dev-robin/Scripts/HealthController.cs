@@ -22,6 +22,9 @@ public class HealthController : MonoBehaviour
 
     private AudioSource auidoSource;
     [SerializeField] AudioClip deadClip;
+
+    [SerializeField] AudioClip pirateWinSound;
+    [SerializeField] AudioClip marineWinSound;
     // Start is called before the first frame update
     void Awake()
     {
@@ -50,11 +53,13 @@ public class HealthController : MonoBehaviour
             {
                 
                multiplayerController.gameOverText.GetComponentInChildren<TextMeshProUGUI>().text = "Marine team wins";
+                auidoSource.PlayOneShot(marineWinSound, 1);
             }
             else if (GameObject.FindGameObjectWithTag("Marine team").GetComponentInChildren<HealthController>().playerHealth <= 0 )
             {
 
               multiplayerController.gameOverText.GetComponentInChildren<TextMeshProUGUI>().text = "Pirate team win";
+              auidoSource.PlayOneShot(pirateWinSound, 1);
             }
             
             gameObject.GetComponent<HealthController>().enabled = false;

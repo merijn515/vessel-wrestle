@@ -5,10 +5,14 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
     [SerializeField] int healingAmount;
+
+    private AudioSource source;
+
+    [SerializeField] AudioClip healClip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GameObject.FindGameObjectWithTag("sfxManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +28,7 @@ public class HealthPickup : MonoBehaviour
             if (other.gameObject.GetComponentInChildren<HealthController>().playerHealth < 10)
             {
                 other.GetComponentInChildren<HealthController>().playerHealth += healingAmount;
+                source.PlayOneShot(healClip, 1);
                 Destroy(gameObject);
             }
         }

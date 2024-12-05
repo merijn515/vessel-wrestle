@@ -11,6 +11,8 @@ public class MultiplayerController : MonoBehaviour
 
     [SerializeField] GameObject player2Text;
     public GameObject gameOverText;
+
+   
     // Start is called before the first frame update
     void Start()
     {

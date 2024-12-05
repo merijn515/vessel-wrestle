@@ -28,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2515055203134906286}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.8290378, w: 0.55919266}
   m_LocalPosition: {x: -17.31, y: 107.49937, z: 204.85997}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 330577840216569892}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 608}
 --- !u!54 &1261056720855524889
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   swordImpact: 3000
   animator: {fileID: 0}
   canUse: 0
+  playerPickup: {fileID: 0}
 --- !u!65 &6898686323523021377
 BoxCollider:
   m_ObjectHideFlags: 0
