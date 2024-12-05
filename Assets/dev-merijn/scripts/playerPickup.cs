@@ -42,6 +42,7 @@ public class playerPickup : MonoBehaviour
                 }
                 if (objectHold.CompareTag("barrel"))
                 {
+                    
                     objectHold.transform.position = testBarrelPos.transform.position; // /// // /// // // // /// // // /// // // // // testBarrelPos
                     objectHold.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(90f, 0f, 0);
                     /*objectHold.transform.forward = gameObject.transform.right;*/
@@ -65,16 +66,14 @@ public class playerPickup : MonoBehaviour
                 //objectHold = other.gameObject;
                 //other.gameObject.layer = 6;
                 //holdingObject = true;
+                
                 GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
                 animator.SetBool("test holdBarrel", true);
             }
 
 
-            if ( other.gameObject.GetComponent<Molotovbehaviour>() != null)
-            {
-                other.gameObject.GetComponent<Molotovbehaviour>().canBreak = true;
-
-            }else if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
+           
+            if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
             {
                 other.gameObject.GetComponent<KnockbackSwordBehaviour>().canUse= true;
                 other.gameObject.GetComponent<BoxCollider>().isTrigger = false;
@@ -101,7 +100,13 @@ public class playerPickup : MonoBehaviour
             {
                 animator.SetTrigger("test barrelThrow");
             }
-            throwRoutine = StartCoroutine(ThrowRoutine());
+
+            if (objectHold.gameObject.GetComponent<Molotovbehaviour>() != null)
+            {
+                objectHold.gameObject.GetComponent<Molotovbehaviour>().canBreak = true;
+            }
+
+                throwRoutine = StartCoroutine(ThrowRoutine());
         }
     }
 

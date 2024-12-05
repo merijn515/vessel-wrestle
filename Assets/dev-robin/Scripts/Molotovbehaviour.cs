@@ -14,6 +14,9 @@ public class Molotovbehaviour : MonoBehaviour
 
     private bool isActive;
     public bool canBreak;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip molotvSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +71,9 @@ public class Molotovbehaviour : MonoBehaviour
         if ( canBreak && collision.gameObject.tag == "Ground")
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<CapsuleCollider>().isTrigger = false;
+
+            audioSource.PlayOneShot(molotvSFX, 1);
             isActive = true;
         }
 
