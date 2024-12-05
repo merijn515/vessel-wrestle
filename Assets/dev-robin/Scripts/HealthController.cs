@@ -20,7 +20,7 @@ public class HealthController : MonoBehaviour
 
     public bool joined = false;
 
-    [SerializeField] AudioSource auidoSource;
+    private AudioSource auidoSource;
     [SerializeField] AudioClip deadClip;
     // Start is called before the first frame update
     void Awake()
@@ -28,6 +28,7 @@ public class HealthController : MonoBehaviour
         RagdollPartsDisabled();
         rb = GetComponent<Rigidbody>();
         multiplayerController = FindAnyObjectByType<MultiplayerController>();
+        auidoSource = GameObject.FindGameObjectWithTag("sfxManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -17,7 +17,7 @@ public class PlayerActions : MonoBehaviour
 
     private playerMovement playerMovement;
 
-    [SerializeField] AudioSource audioSource;
+    private AudioSource audioSource;
 
     [SerializeField] AudioClip punchMissClip;
     [SerializeField] AudioClip punchHitClip;
@@ -46,7 +46,7 @@ public class PlayerActions : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
 
         playerMovement = GetComponent<playerMovement>();
-       
+       audioSource = GameObject.FindGameObjectWithTag("sfxManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

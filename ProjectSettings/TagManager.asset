@@ -12,6 +12,7 @@ TagManager:
   - Marine team
   - Pirate team
   - Death barier
+  - sfxManager
   layers:
   - Default
   - TransparentFX

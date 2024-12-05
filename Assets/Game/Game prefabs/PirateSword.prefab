@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec63582c4501894a9bbe40bcee6778e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordRadius: 2
+  swordRadius: 15
   swordImpact: 30
   animator: {fileID: 0}
   canUse: 0
