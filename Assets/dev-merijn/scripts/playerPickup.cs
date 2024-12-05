@@ -76,13 +76,14 @@ public class playerPickup : MonoBehaviour
             if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
             {
                 other.gameObject.GetComponent<KnockbackSwordBehaviour>().canUse= true;
-                other.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
                 other.gameObject.GetComponent<KnockbackSwordBehaviour>().animator = gameObject.GetComponentInChildren<Animator>();
                 
             }
            
           /*other.gameObject.transform.position = rightHand.transform.position;*/
-          objectHold = other.gameObject;
+           objectHold = other.gameObject;
             other.gameObject.layer = 6;
             holdingObject = true;
         } 

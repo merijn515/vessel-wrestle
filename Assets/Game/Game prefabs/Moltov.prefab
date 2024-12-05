@@ -126,6 +126,8 @@ MonoBehaviour:
     m_Bits: 4096
   fire: {fileID: 3477669419658013665, guid: 36466fd9b5feac440af33892535df8c0, type: 3}
   canBreak: 0
+  audioSource: {fileID: 0}
+  molotvSFX: {fileID: 8300000, guid: 35e54f8bdd9f00f4db9630c1ec86da5c, type: 3}
 --- !u!1 &5200359697653258384
 GameObject:
   m_ObjectHideFlags: 0

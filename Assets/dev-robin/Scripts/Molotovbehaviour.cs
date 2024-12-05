@@ -72,9 +72,9 @@ public class Molotovbehaviour : MonoBehaviour
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             gameObject.GetComponent<CapsuleCollider>().isTrigger = false;
-
             audioSource.PlayOneShot(molotvSFX, 1);
             isActive = true;
+            canBreak = false;
         }
 
 
