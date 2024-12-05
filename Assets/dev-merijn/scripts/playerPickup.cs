@@ -21,6 +21,8 @@ public class playerPickup : MonoBehaviour
     [SerializeField]
     private Coroutine throwRoutine;
 
+    [SerializeField] LayerMask layerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,23 +57,16 @@ public class playerPickup : MonoBehaviour
     {
         if (objectHold == null && (other.gameObject.CompareTag("itemPickup") || other.gameObject.CompareTag("barrel")))
         {
+           
             /*if (other.gameObject.CompareTag("itemPickup"))
             {
                 objectHold = other.gameObject;
                 other.gameObject.layer = 6;
                 holdingObject = true;
             }*/
-            if (other.gameObject.GetComponent<barrel>() != null)
-            {
-                //objectHold = other.gameObject;
-                //other.gameObject.layer = 6;
-                //holdingObject = true;
-                
-                GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
-                animator.SetBool("test holdBarrel", true);
-            }
+            
 
-
+            
            
             if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
             {
@@ -80,10 +75,31 @@ public class playerPickup : MonoBehaviour
                 other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
                 other.gameObject.GetComponent<KnockbackSwordBehaviour>().animator = gameObject.GetComponentInChildren<Animator>();
                 
+            } else if (other.gameObject.GetComponent<cannonBall>() != null)
+            {
+                
+                other.gameObject.GetComponent<SphereCollider>().enabled = false;
+                other.gameObject.GetComponent<BoxCollider>().excludeLayers = layerMask;
+
+            } else if (other.gameObject.GetComponent<barrel>() != null)
+            {
+                //objectHold = other.gameObject;
+                //other.gameObject.layer = 6;
+                //holdingObject = true;
+
+                other.gameObject.GetComponent<CapsuleCollider>().enabled= false;
+                other.gameObject.GetComponent<BoxCollider>().excludeLayers = layerMask;
+                GetComponent<playerMovement>().animator.SetBool("test move trigger", false);
+                animator.SetBool("test holdBarrel", true);
+
+            } else if ( other.gameObject.GetComponent<Molotovbehaviour>() != null)
+            {
+                other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                other.gameObject.GetComponent<BoxCollider>().excludeLayers = layerMask;
             }
-           
-          /*other.gameObject.transform.position = rightHand.transform.position;*/
-           objectHold = other.gameObject;
+
+            /*other.gameObject.transform.position = rightHand.transform.position;*/
+            objectHold = other.gameObject;
             other.gameObject.layer = 6;
             holdingObject = true;
         } 

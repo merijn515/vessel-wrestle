@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9211410428623260085}
   - component: {fileID: 7949536073490990988}
   - component: {fileID: 7968022903291940955}
-  - component: {fileID: 4984445043907762325}
+  - component: {fileID: 9144284405767298767}
   m_Layer: 0
   m_Name: test cannon ball
   m_TagString: itemPickup
@@ -106,8 +106,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.9787292
+  m_Center: {x: 0, y: 0, z: -0.0770874}
 --- !u!54 &7949536073490990988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   explosionRadius: 14
   explosionPower: 450
   explosionParticles: {fileID: 284747604060695320, guid: f6f518cb97a9fc54dad9951481b969b6, type: 3}
---- !u!135 &4984445043907762325
-SphereCollider:
+--- !u!65 &9144284405767298767
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,5 +169,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.8322067, y: 3.430993, z: 3.430993}
+  m_Center: {x: 0.7006072, y: 0, z: 0}
