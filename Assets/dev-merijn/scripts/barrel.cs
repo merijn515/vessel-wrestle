@@ -34,6 +34,8 @@ public class barrel : MonoBehaviour
                 Debug.Log(hit.point);
             Destroy(Instantiate(oil, hit.point, Quaternion.identity), 15f);
             }
+            Debug.Log("geen if: " + collision.gameObject.name);
+            Destroy(gameObject);
             //Destroy(Instantiate(oil, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity), 15f);
         }
     }
