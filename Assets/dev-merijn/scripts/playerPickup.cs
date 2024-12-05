@@ -72,11 +72,8 @@ public class playerPickup : MonoBehaviour
             }
 
 
-            if ( other.gameObject.GetComponent<Molotovbehaviour>() != null)
-            {
-                other.gameObject.GetComponent<Molotovbehaviour>().canBreak = true;
-
-            }else if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
+           
+            if(other.gameObject.GetComponent<KnockbackSwordBehaviour>() != null)
             {
                 other.gameObject.GetComponent<KnockbackSwordBehaviour>().canUse= true;
                 other.gameObject.GetComponent<BoxCollider>().isTrigger = false;
@@ -103,7 +100,13 @@ public class playerPickup : MonoBehaviour
             {
                 animator.SetTrigger("test barrelThrow");
             }
-            throwRoutine = StartCoroutine(ThrowRoutine());
+
+            if (objectHold.gameObject.GetComponent<Molotovbehaviour>() != null)
+            {
+                objectHold.gameObject.GetComponent<Molotovbehaviour>().canBreak = true;
+            }
+
+                throwRoutine = StartCoroutine(ThrowRoutine());
         }
     }
 
