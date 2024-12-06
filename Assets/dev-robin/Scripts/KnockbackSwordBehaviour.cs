@@ -11,6 +11,7 @@ public class KnockbackSwordBehaviour : MonoBehaviour
     private PlayerActions playerActions;
     public Animator animator;
     public bool canUse = false;
+    public playerPickup playerPickup;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,8 @@ public class KnockbackSwordBehaviour : MonoBehaviour
 
                 rigid.AddForce(collider.gameObject.transform.position * swordImpact);
                 Destroy(gameObject);
+                playerPickup.holdingObject = false;
+              
             }
         }
 

@@ -17,6 +17,14 @@ public class PlayerActions : MonoBehaviour
 
     private playerMovement playerMovement;
 
+    private AudioSource audioSource;
+
+    [SerializeField] AudioClip punchMissClip;
+    [SerializeField] AudioClip punchHitClip;
+
+    [SerializeField] AudioClip groundPoundClip;
+    [SerializeField] AudioClip jumpClip;
+
     // variables
     [SerializeField] int groundPoundForce;
     [SerializeField] float groundPoundRadius;
@@ -38,7 +46,7 @@ public class PlayerActions : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
 
         playerMovement = GetComponent<playerMovement>();
-       
+       audioSource = GameObject.FindGameObjectWithTag("sfxManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,8 +60,9 @@ public class PlayerActions : MonoBehaviour
 
     public void Punching(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && isOnGround)
         {
+            audioSource.PlayOneShot(punchMissClip, 1);
             animator.SetBool("Punch", true);
        
             StartCoroutine(PunchingEnum());
@@ -67,6 +76,7 @@ public class PlayerActions : MonoBehaviour
         
             if (jumpAmount > 0 && context.performed)
             {
+            audioSource.PlayOneShot(jumpClip, 1);
                 jumpAmount--;
                 isOnGround = false;
 
@@ -82,6 +92,7 @@ public class PlayerActions : MonoBehaviour
     {
         if(!isOnGround && context.performed)
         {
+            
             //ground pound animations still needs to be added
             animator.SetBool("GroundPound", true);
             StartCoroutine(GroundPoundEnum());
@@ -93,6 +104,7 @@ public class PlayerActions : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(.5f);
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
+        audioSource.PlayOneShot(groundPoundClip, 1);
 
         yield return wait;
         rb.useGravity = true;
@@ -137,7 +149,7 @@ public class PlayerActions : MonoBehaviour
                     var rigid = collider.GetComponent<Rigidbody>();
 
                     rigid.AddForce(collider.gameObject.transform.position * punchImpact,ForceMode.Impulse);
-                    
+                    audioSource.PlayOneShot(punchHitClip, .5f);
                 }
             }
         }

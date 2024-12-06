@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingAmount: 2
+  healClip: {fileID: 8300000, guid: 4695444fdc8fe9e4fbbd0b29da7ac191, type: 3}
 --- !u!65 &3203326704749233124
 BoxCollider:
   m_ObjectHideFlags: 0

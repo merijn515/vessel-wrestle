@@ -14,10 +14,13 @@ public class cannonBall : MonoBehaviour
     [SerializeField]
     private GameObject explosionParticles;
 
+    [SerializeField] AudioClip explosionSound;
+
+    private AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GameObject.FindGameObjectWithTag("sfxManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,7 @@ public class cannonBall : MonoBehaviour
         }
 
         yield return null;
+        source.PlayOneShot(explosionSound, 1);
         Destroy(Instantiate(explosionParticles, transform.position, Quaternion.identity), 3);
         Destroy(gameObject);
         StopCoroutine(cannonBallExplode);

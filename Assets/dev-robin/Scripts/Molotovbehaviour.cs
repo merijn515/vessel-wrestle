@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Molotovbehaviour : MonoBehaviour
@@ -15,12 +16,13 @@ public class Molotovbehaviour : MonoBehaviour
     private bool isActive;
     public bool canBreak;
 
-    [SerializeField] AudioSource audioSource;
+    private  AudioSource audioSource;
     [SerializeField] AudioClip molotvSFX;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(MolotovExplosion());
+        audioSource = GameObject.FindGameObjectWithTag("sfxManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,9 +74,9 @@ public class Molotovbehaviour : MonoBehaviour
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             gameObject.GetComponent<CapsuleCollider>().isTrigger = false;
-
             audioSource.PlayOneShot(molotvSFX, 1);
             isActive = true;
+            canBreak = false;
         }
 
 
